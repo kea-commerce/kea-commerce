@@ -1,17 +1,17 @@
 import { createRoutesFromElements, Route } from 'react-router-dom';
 import { App } from './app';
-import Home from '../pages/Home';
-import About from '../pages/About';
-import Categories from '../pages/Categories';
-import Cart from '../pages/Cart';
-import Contact from '../pages/Contact';
-import Order from '../pages/Order';
-import Privacy from '../pages/Privacy';
-import Product from '../pages/Product';
-import Search from '../pages/Search';
-import Terms from '../pages/Terms';
-import User from '../pages/User';
-import Checkout from '../pages/Checkout';
+import Home from '../pages/home';
+import About from '../pages/about';
+import Categories from '../pages/categories';
+import Cart from '../pages/cart';
+import Contact from '../pages/contact';
+import Order from '../pages/order';
+import Privacy from '../pages/privacy';
+import Product from '../pages/product';
+import Search from '../pages/search';
+import Terms from '../pages/terms';
+import User from '../pages/user';
+import Checkout from '../pages/checkout';
 
 export default createRoutesFromElements(
   <Route path="/" element={<App />}>
