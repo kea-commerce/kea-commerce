@@ -22,6 +22,7 @@ module.exports = {
       laptop: '1024px',
       desktop: '1200px',
     },
+    fontFamily: {},
   },
   plugins: [],
 };
