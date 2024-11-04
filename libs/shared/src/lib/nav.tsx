@@ -11,9 +11,9 @@ export function Nav() {
       <img
         src="/leafIcon.png"
         alt="E-Kea Comm logo"
-        className="desktop:max-w-52"
+        className="desktop:max-w-52 desktop:p-6"
       />
-      <h1>E-Kea Comm</h1>
+      <h1 className="desktop:text-5xl">E-Kea Comm</h1>
       <div className="flex items-center justify-between gap-4 pr-3">
         <Link to="/about">
           <p className="desktop:text-2xl">OUR STORY</p>

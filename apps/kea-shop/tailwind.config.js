@@ -22,7 +22,9 @@ module.exports = {
       laptop: '1024px',
       desktop: '1200px',
     },
-    fontFamily: {},
+    fontFamily: {
+      mainFont: ['Darker Grotesque', 'sans-serif'],
+    },
   },
   plugins: [],
 };
