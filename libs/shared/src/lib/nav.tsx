@@ -8,12 +8,16 @@ export function Nav() {
 
   return (
     <div className="bg-lightYellow flex items-center justify-between">
-      <img
-        src="/leafIcon.png"
-        alt="E-Kea Comm logo"
-        className="desktop:max-w-52 desktop:p-6"
-      />
-      <h1 className="desktop:text-5xl">E-Kea Comm</h1>
+      <Link to="/">
+        <div className="flex items-center">
+          <img
+            src="/leafIcon.png"
+            alt="E-Kea Comm logo"
+            className="desktop:max-w-52 desktop:p-6"
+          />
+          <h1 className="desktop:text-6xl">E-Kea Comm</h1>
+        </div>
+      </Link>
       <div className="flex items-center justify-between gap-4 pr-3">
         <Link to="/about">
           <p className="desktop:text-2xl">OUR STORY</p>
