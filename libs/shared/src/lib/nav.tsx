@@ -15,12 +15,12 @@ export function Nav() {
       />
       <div className="flex items-center justify-between gap-4 pr-3">
         
-        <div className="flex items-center justify-between">
+
         <Link to="/about">
           <p className='desktop:text-2xl'>OUR STORY</p>
           </Link>
-          <FaChevronDown className='desktop:w-8'/>
-          </div>
+    
+
        
         
         <div className="flex items-center justify-between">
