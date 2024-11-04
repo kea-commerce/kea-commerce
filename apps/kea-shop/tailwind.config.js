@@ -11,7 +11,17 @@ module.exports = {
     ...createGlobPatternsForDependencies(__dirname),
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        lightYellow: '#f5edd6',
+      },
+    },
+    screens: {
+      mobile: '320px',
+      tablet: '768px',
+      laptop: '1024px',
+      desktop: '1200px',
+    },
   },
   plugins: [],
 };
