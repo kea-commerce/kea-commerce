@@ -3,9 +3,15 @@ import { MdOutlineAccountCircle, MdOutlineShoppingCart } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 
 export function Nav() {
+  const iconClass = 'border-2 rounded desktop:p-0.5 desktop:w-12 desktop:h-12';
+
   return (
     <div className="bg-lightYellow flex">
-      <img src="/mainLogo.png" alt="E-Kea Comm logo" className="" />
+      <img
+        src="/mainLogo.png"
+        alt="E-Kea Comm logo"
+        className="desktop:max-w-52"
+      />
 
       <Link to="/about">
         <p>Our Story</p>
@@ -16,15 +22,15 @@ export function Nav() {
       </Link>
 
       <Link to="/cart">
-        <MdOutlineShoppingCart />
+        <MdOutlineShoppingCart className={iconClass} />
       </Link>
 
       <Link to="/profile/:name">
-        <MdOutlineAccountCircle />
+        <MdOutlineAccountCircle className={iconClass} />
       </Link>
 
       <Link to="/search">
-        <IoSearch />
+        <IoSearch className={iconClass} />
       </Link>
     </div>
   );
