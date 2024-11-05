@@ -8,7 +8,11 @@ interface Props {
 
 export const Hamburger = ({ isOpen, onClick }: Props) => {
   return (
-    <button onClick={onClick}>
+    <button
+      onClick={onClick}
+      type="button"
+      aria-label={isOpen ? 'Close menu' : 'Open menu'}
+    >
       {isOpen ? (
         <IoMdClose className="border-2 rounded p-0.5 min-w-10 min-h-10" />
       ) : (

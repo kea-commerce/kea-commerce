@@ -13,12 +13,12 @@ export const NavLinks = () => {
   ];
 
   return (
-    <div className="gap-5 bg-white bg-opacity-50 h-screen">
+    <div className="gap-5 bg-white bg-opacity-50 h-screen rounded-sm">
       <ul className="gap-4">
         {navLinks.map((link, index) => (
           <Link to={link.url}>
             <div className="flex items-center">
-              <li key={index} className="text-2xl pl-3 p-2">
+              <li key={index} className="text-2xl pl-4 p-3">
                 {link.title}
               </li>
               {link.icon && <span>{link.icon}</span>}
