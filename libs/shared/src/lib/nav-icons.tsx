@@ -14,7 +14,7 @@ export const NavIcons = () => {
   ];
 
   return (
-    <ul className="flex items-center mr-2.5 gap-2">
+    <ul className="flex items-center gap-2">
       {iconList.map((icon, index) => (
         <Link to={icon.url}>
           <li key={index}>{icon.icon}</li>

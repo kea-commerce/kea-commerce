@@ -1,9 +1,19 @@
 import { RxHamburgerMenu } from 'react-icons/rx';
+import { IoMdClose } from 'react-icons/io';
 
-export const Hamburger = () => {
+interface Props {
+  isOpen: boolean;
+  onClick: () => void;
+}
+
+export const Hamburger = ({ isOpen, onClick }: Props) => {
   return (
-    <button>
-      <RxHamburgerMenu className="min-w-10 min-h-12 ml-2.5" />
+    <button onClick={onClick}>
+      {isOpen ? (
+        <IoMdClose className="border-2 rounded p-0.5 min-w-10 min-h-10" />
+      ) : (
+        <RxHamburgerMenu className="min-w-10 min-h-12" />
+      )}
     </button>
   );
 };

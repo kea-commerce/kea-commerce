@@ -12,10 +12,11 @@
 
 h1 {
   font-family: 'Darker Grotesque';
-  font-weight: 400;
+  font-weight: 500;
 }
 
-p {
+p,
+li {
   font-family: 'Darker Grotesque';
-  font-weight: 200;
+  font-weight: 400;
 }
