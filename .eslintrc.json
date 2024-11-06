@@ -110,7 +110,7 @@
         "unicorn/prefer-module": "off",
         "unicorn/prefer-query-selector": "warn",
         "unicorn/prevent-abbreviations": [
-          "error",
+          "warn",
           {
             "replacements": {
               "args": {
@@ -118,6 +118,10 @@
               },
               "dir": {
                 "directory": false
+              },
+              "e": {
+                "error": false,
+                "event": false
               },
               "env": {
                 "environment": false
