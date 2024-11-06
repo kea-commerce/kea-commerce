@@ -42,7 +42,9 @@ export const Footer = () => {
         ))}
       </ul>
       <ul>
-        {footerIcons.map((icon, index) =)}
+        {footerIcons.map((icon, index) => (
+          <Link to={icon.url}><li key=></li></Link>
+        ))}
       </ul>
     </>
   );
