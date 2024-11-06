@@ -1,13 +1,9 @@
-import { Shared } from '@kea-commerce/shared';
-
 import { Link, Route, Routes } from 'react-router-dom';
 import NxWelcome from './nx-welcome';
 
 export function App() {
   return (
     <div>
-      {/* Example importing shared lib component, will be removed: */}
-      <Shared></Shared>
       <NxWelcome title="kea-shop" />
 
       {/* START: routes */}
