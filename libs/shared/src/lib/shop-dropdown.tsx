@@ -12,13 +12,14 @@ const collections = [
 
 export const ShopDropdown = () => {
   return (
-    <ul className="pl-7 pb-4">
+    <ul className="pl-7 pb-4 md:bg-lighterYellow absolute md:py-0.5 md:pr-5 md:pl-2 md:mt-2">
       {collections.map((category, index) => (
         <Link
           to={`collections/${category.link}`}
           aria-label={`shop for ${category.title}`}
+          key={index}
         >
-          <li key={index}>{category.title}</li>
+          <li >{category.title}</li>
         </Link>
       ))}
     </ul>

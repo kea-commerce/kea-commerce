@@ -14,6 +14,7 @@ module.exports = {
     extend: {
       colors: {
         lightYellow: '#f5edd6',
+        lighterYellow: '#faf6eb',
       },
     },
     fontFamily: {
