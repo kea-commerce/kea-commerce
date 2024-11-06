@@ -15,7 +15,9 @@
             "depConstraints": [
               {
                 "sourceTag": "*",
-                "onlyDependOnLibsWithTags": ["*"]
+                "onlyDependOnLibsWithTags": [
+                  "*"
+                ]
               }
             ]
           }
@@ -56,39 +58,56 @@
         "react/destructuring-assignment": "error",
         "react/forbid-component-props": "off",
         "react/function-component-definition": [
-          "error", {
+          "error",
+          {
             "namedComponents": "arrow-function",
             "unnamedComponents": "arrow-function"
           }
         ],
         "react/hook-use-state": "warn",
-        "react/jsx-filename-extension": "warn",
+        "react/jsx-filename-extension": "off",
         "react/jsx-max-depth": "warn",
         "react/jsx-no-bind": "warn",
         "react/jsx-no-leaked-render": "warn",
         "react/jsx-no-literals": "warn",
         "react/jsx-props-no-spreading": "warn",
         "react/jsx-sort-props": "warn",
+        "react/react-in-jsx-scope": "off",
         "react/require-default-props": "warn",
         "simple-import-sort/exports": "error",
         "simple-import-sort/imports": [
           "error",
           {
             "groups": [
-              ["^react", "^@?\\w"],
+              [
+                "^react",
+                "^@?\\w"
+              ],
               [
                 "^(@kea-commerce)(/.*|$)"
               ],
-              ["^\\u0000"],
-              ["^\\.\\.(?!/?$)", "^\\.\\./?$"],
-              ["^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"],
-              ["^.+\\.s?css$"]
+              [
+                "^\\u0000"
+              ],
+              [
+                "^\\.\\.(?!/?$)",
+                "^\\.\\./?$"
+              ],
+              [
+                "^\\./(?=.*/)(?!/?$)",
+                "^\\.(?!/?$)",
+                "^\\./?$"
+              ],
+              [
+                "^.+\\.s?css$"
+              ]
             ]
           }
         ],
-        "unicorn/import-style": "warn",
+        "unicorn/import-style": "off",
         "unicorn/no-lonely-if": "warn",
         "unicorn/no-null": "warn",
+        "unicorn/prefer-module": "off",
         "unicorn/prefer-query-selector": "warn",
         "unicorn/prevent-abbreviations": [
           "error",
@@ -152,8 +171,17 @@
       "rules": {}
     },
     {
+      "files": ["*.cy.ts"],
+      "plugins": [],
+      "extends": ["plugin:cypress/recommended"],
+      "env": {
+        "cypress/globals": true
+      },
+      "rules": {}
+    },
+    {
       "files": ["*.spec.ts", "*.spec.tsx", "*.spec.js", "*.spec.jsx"],
-      "plugins": ["jest", "jest-formatting"],
+      "plugins": [],
       "extends": ["plugin:jest/recommended", "plugin:jest-formatting/recommended"],
       "env": {
         "jest": true
