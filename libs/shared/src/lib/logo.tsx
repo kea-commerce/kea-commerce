@@ -7,11 +7,11 @@ export const Logo = () => {
         <img
           src="/leafIcon.png"
           alt="E-Kea Comm logo"
-          className="max-w-20 p-2"
+          className="max-w-20 p-2 md:max-w-[100px]"
         />
       ),
     },
-    { item: <h1 className="text-2xl">E-Kea Comm</h1> },
+    { item: <h1 className="text-2xl md:text-4xl md:pl-1">E-Kea Comm</h1> },
   ];
 
   return (
