@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "dev:shop": "nx run kea-shop:serve"
+    "dev:shop": "nx run kea-shop:serve",
+    "lint": "nx run-many --target=lint"
   },
   "private": true,
   "devDependencies": {
