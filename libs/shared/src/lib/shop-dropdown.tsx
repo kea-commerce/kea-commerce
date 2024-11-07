@@ -12,7 +12,7 @@ const collections = [
 
 export const ShopDropdown = () => {
   return (
-    <ul className="pl-7 pb-4 md:bg-lighterYellow absolute md:py-0.5 md:pr-5 md:pl-2 md:mt-2">
+    <ul className="pl-7 pb-4 md:bg-lighterYellow md:absolute md:py-0.5 md:pr-5 md:pl-2 md:mt-2">
       {collections.map((category, index) => (
         <Link
           to={`collections/${category.link}`}
