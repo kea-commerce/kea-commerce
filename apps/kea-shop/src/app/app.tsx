@@ -1,5 +1,6 @@
 import { Link, Route, Routes } from 'react-router-dom';
 import NxWelcome from './nx-welcome';
+import Footer from '../../../../libs/shared/src/lib/footer';
 
 export function App() {
   return (
@@ -12,7 +13,7 @@ export function App() {
       <br />
       <hr />
       <br />
-      <div role="navigation">
+      {/* <div role="navigation">
         <ul>
           <li>
             <Link to="/">Home</Link>
@@ -42,6 +43,7 @@ export function App() {
         />
       </Routes>
       {/* END: routes */}
+      <Footer />
     </div>
   );
 }
