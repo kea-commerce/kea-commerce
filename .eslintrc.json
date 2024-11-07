@@ -1,7 +1,8 @@
 {
   "root": true,
   "ignorePatterns": ["**/*"],
-  "plugins": ["@nx"],
+  "plugins": ["@nx", "@tanstack/query", "import", "jsdoc", "no-unary-plus", "react-compiler", "react-refresh", "react-perf", "simple-import-sort"],
+  "extends": ["plugin:eslint-comments/recommended", "plugin:jsdoc/recommended", "plugin:jsx-a11y/recommended", "plugin:promise/recommended", "plugin:react/all", "plugin:unicorn/recommended"],
   "overrides": [
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
@@ -14,9 +15,151 @@
             "depConstraints": [
               {
                 "sourceTag": "*",
-                "onlyDependOnLibsWithTags": ["*"]
+                "onlyDependOnLibsWithTags": [
+                  "*"
+                ]
               }
             ]
+          }
+        ],
+        "@tanstack/query/exhaustive-deps": "error",
+        "@tanstack/query/no-rest-destructuring": "error",
+        "@tanstack/query/stable-query-client": "error",
+        "@typescript-eslint/consistent-type-imports": [
+          "error",
+          {
+            "fixStyle": "inline-type-imports",
+            "disallowTypeAnnotations": true
+          }
+        ],
+        "eslint-comments/require-description": "warn",
+        "import/first": "error",
+        "import/newline-after-import": "error",
+        "import/no-duplicates": "error",
+        "jsdoc/require-jsdoc": "off",
+        "jsx-a11y/click-events-have-key-events": "warn",
+        "jsx-a11y/no-static-element-interactions": "warn",
+        "no-eval": "error",
+        "no-implied-eval": "error",
+        "no-restricted-syntax": [
+          "error",
+          {
+            "selector": ":matches(ExportAllDeclaration)",
+            "message": "Export only the modules you need."
+          }
+        ],
+        "no-unary-plus/no-unary-plus": "error",
+        "react-compiler/react-compiler": "error",
+        "react-perf/jsx-no-jsx-as-prop": "error",
+        "react-perf/jsx-no-new-array-as-prop": "error",
+        "react-perf/jsx-no-new-function-as-prop": "error",
+        "react-perf/jsx-no-new-object-as-prop": "error",
+        "react-refresh/only-export-components": "error",
+        "react/destructuring-assignment": "error",
+        "react/forbid-component-props": "off",
+        "react/function-component-definition": [
+          "error",
+          {
+            "namedComponents": "arrow-function",
+            "unnamedComponents": "arrow-function"
+          }
+        ],
+        "react/hook-use-state": "warn",
+        "react/jsx-filename-extension": "off",
+        "react/jsx-max-depth": "warn",
+        "react/jsx-no-bind": "warn",
+        "react/jsx-no-leaked-render": "warn",
+        "react/jsx-no-literals": "warn",
+        "react/jsx-props-no-spreading": "warn",
+        "react/jsx-sort-props": "warn",
+        "react/react-in-jsx-scope": "off",
+        "react/require-default-props": "warn",
+        "simple-import-sort/exports": "error",
+        "simple-import-sort/imports": [
+          "error",
+          {
+            "groups": [
+              [
+                "^react",
+                "^@?\\w"
+              ],
+              [
+                "^(@kea-commerce)(/.*|$)"
+              ],
+              [
+                "^\\u0000"
+              ],
+              [
+                "^\\.\\.(?!/?$)",
+                "^\\.\\./?$"
+              ],
+              [
+                "^\\./(?=.*/)(?!/?$)",
+                "^\\.(?!/?$)",
+                "^\\./?$"
+              ],
+              [
+                "^.+\\.s?css$"
+              ]
+            ]
+          }
+        ],
+        "unicorn/import-style": "off",
+        "unicorn/no-lonely-if": "warn",
+        "unicorn/no-null": "warn",
+        "unicorn/prefer-module": "off",
+        "unicorn/prefer-query-selector": "warn",
+        "unicorn/prevent-abbreviations": [
+          "warn",
+          {
+            "replacements": {
+              "args": {
+                "arguments": false
+              },
+              "dir": {
+                "directory": false
+              },
+              "e": {
+                "error": false,
+                "event": false
+              },
+              "env": {
+                "environment": false
+              },
+              "i": {
+                "index": false
+              },
+              "fn": {
+                "function": false
+              },
+              "func": {
+                "function": false
+              },
+              "num": {
+                "number": false
+              },
+              "params": {
+                "parameters": false
+              },
+              "prev": {
+                "previous": false
+              },
+              "prop": {
+                "property": false
+              },
+              "props": {
+                "properties": false
+              },
+              "ref": {
+                "reference": false
+              },
+              "var": {
+                "variable": false
+              },
+              "vars": {
+                "variables": false
+              }
+            }
           }
         ]
       }
@@ -32,7 +175,18 @@
       "rules": {}
     },
     {
+      "files": ["*.cy.ts"],
+      "plugins": [],
+      "extends": ["plugin:cypress/recommended"],
+      "env": {
+        "cypress/globals": true
+      },
+      "rules": {}
+    },
+    {
       "files": ["*.spec.ts", "*.spec.tsx", "*.spec.js", "*.spec.jsx"],
+      "plugins": [],
+      "extends": ["plugin:jest/recommended", "plugin:jest-formatting/recommended"],
       "env": {
         "jest": true
       },
