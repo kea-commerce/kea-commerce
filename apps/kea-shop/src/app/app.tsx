@@ -1,8 +1,8 @@
-import { Link, Route, Routes } from 'react-router-dom';
-import NxWelcome from './nx-welcome';
 import Footer from '../../../../libs/shared/src/lib/footer';
 
-export function App() {
+import NxWelcome from './nx-welcome';
+
+export const App = () => {
   return (
     <div>
       <NxWelcome title='kea-shop' />
@@ -15,4 +15,4 @@ export function App() {
       <Footer />
     </div>
   );
-}
+};
