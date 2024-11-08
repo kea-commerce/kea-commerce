@@ -1,10 +1,10 @@
 import { IoMdClose } from 'react-icons/io';
 import { RxHamburgerMenu } from 'react-icons/rx';
 
-interface HamburgerProps {
+type HamburgerProps = Readonly<{
   isOpen: boolean;
   onClick: () => void;
-}
+}>;
 
 export const Hamburger = ({ isOpen, onClick }: HamburgerProps) => {
   return (
