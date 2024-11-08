@@ -1,12 +1,12 @@
 import { useCallback, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import type { LinkIcons, Links } from './nav-links';
 import { ShopDropdown } from './shop-dropdown';
+import type { NavLinkIcon, NavLinkItem } from './type';
 
 type NavLinkProps = Readonly<{
-  links: Links;
-  icons?: LinkIcons;
+  links: NavLinkItem;
+  icons?: NavLinkIcon;
 }>;
 
 export const NavLink = ({ links, icons }: NavLinkProps) => {
