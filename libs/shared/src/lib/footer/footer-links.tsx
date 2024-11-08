@@ -4,7 +4,7 @@ import { type FooterLink } from './types';
 
 type FooterLinkProps = Readonly<{
   links: FooterLink[];
-}>
+}>;
 
 export const FooterLinks = ({ links }: FooterLinkProps) => {
   return (
