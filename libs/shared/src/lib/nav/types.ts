@@ -17,3 +17,8 @@ export type NavLinkIcon = {
   iconDown: JSX.Element;
   iconUp: JSX.Element;
 };
+
+export type collection = {
+  title: string;
+  link: string;
+};

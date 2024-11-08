@@ -1,4 +1,4 @@
-import { Nav } from '@kea-commerce/shared';
+import { Nav } from '@kea-commerce/shared/nav';
 
 export const App = () => {
   return (

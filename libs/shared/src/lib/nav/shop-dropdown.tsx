@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 
-const collections = [
+import type { collection } from './type';
+
+const collections: collection[] = [
   { title: 'Bath & Body', link: 'bath-body' },
   { title: 'Home', link: 'home' },
   { title: 'Kids & Baby', link: 'kids-baby' },
@@ -12,14 +14,10 @@ const collections = [
 
 export const ShopDropdown = () => {
   return (
-    <ul className="pl-7 pb-4 md:bg-lighterYellow md:absolute md:py-0.5 md:pr-5 md:pl-2 md:mt-2">
-      {collections.map((category, index) => (
-        <Link
-          to={`collections/${category.link}`}
-          aria-label={`shop for ${category.title}`}
-          key={index}
-        >
-          <li >{category.title}</li>
+    <ul className='pl-7 pb-4 md:bg-lighterYellow md:absolute md:py-0.5 md:pr-5 md:pl-2 md:mt-2'>
+      {collections.map((category) => (
+        <Link aria-label={`shop for ${category.title}`} key={category.title} to={`collections/${category.link}`}>
+          <li>{category.title}</li>
         </Link>
       ))}
     </ul>
