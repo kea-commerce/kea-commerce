@@ -1,15 +1,12 @@
 import { Link } from 'react-router-dom';
 
-type FooterLink = {
-  title: string;
-  link: string;
-};
+import { type FooterLink } from './types';
 
-interface Props {
+type FooterLinkProps = Readonly<{
   links: FooterLink[];
-}
+}>
 
-export const FooterLinks = ({ links }: Props) => {
+export const FooterLinks = ({ links }: FooterLinkProps) => {
   return (
     <ul className='flex items-center justify-items-center p-1'>
       {links.map((link) => (

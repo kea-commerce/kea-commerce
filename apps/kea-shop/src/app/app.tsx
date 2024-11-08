@@ -1,4 +1,4 @@
-import Footer from '../../../../libs/shared/src/lib/footer';
+import { Footer } from '@kea-commerce/shared/footer';
 
 import NxWelcome from './nx-welcome';
 

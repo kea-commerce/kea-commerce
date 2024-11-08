@@ -1,10 +1,6 @@
 import { FooterIcons } from './footer-icons';
 import { FooterLinks } from './footer-links';
-
-type FooterLink = {
-  title: string;
-  link: string;
-};
+import { type FooterLink } from './types';
 
 const footerLinks: FooterLink[] = [
   { title: 'About Us', link: '/about' },
@@ -26,5 +22,3 @@ export const Footer = () => {
     </footer>
   );
 };
-
-export default Footer;
