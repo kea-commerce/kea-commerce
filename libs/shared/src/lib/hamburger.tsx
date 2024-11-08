@@ -1,22 +1,18 @@
-import { RxHamburgerMenu } from 'react-icons/rx';
 import { IoMdClose } from 'react-icons/io';
+import { RxHamburgerMenu } from 'react-icons/rx';
 
-interface Props {
+interface HamburgerProps {
   isOpen: boolean;
   onClick: () => void;
 }
 
-export const Hamburger = ({ isOpen, onClick }: Props) => {
+export const Hamburger = ({ isOpen, onClick }: HamburgerProps) => {
   return (
-    <button
-      onClick={onClick}
-      type="button"
-      aria-label={isOpen ? 'Close menu' : 'Open menu'}
-    >
+    <button aria-label={isOpen ? 'Close menu' : 'Open menu'} onClick={onClick} type='button'>
       {isOpen ? (
-        <IoMdClose className="border-2 rounded p-0.5 min-w-10 min-h-10" />
+        <IoMdClose className='border-2 rounded p-0.5 min-w-10 min-h-10' />
       ) : (
-        <RxHamburgerMenu className="min-w-10 min-h-12" />
+        <RxHamburgerMenu className='min-w-10 min-h-12' />
       )}
     </button>
   );

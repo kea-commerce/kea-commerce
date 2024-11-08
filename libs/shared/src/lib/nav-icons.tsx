@@ -1,11 +1,19 @@
-import { Link } from 'react-router-dom';
+import { isMobile } from 'react-device-detect';
 import { IoSearch } from 'react-icons/io5';
 import { MdOutlineAccountCircle, MdOutlineShoppingCart } from 'react-icons/md';
-import { isMobile } from 'react-device-detect';
+import { Link } from 'react-router-dom';
+
+type Icons = {
+  icon: JSX.Element;
+  url: string;
+  label: string;
+  showAlways?: boolean;
+  desktopOnly?: boolean;
+};
 
 export const NavIcons = () => {
   const iconClass = 'border rounded p-0.5 w-8 h-8 md:p-1';
-  const iconList = [
+  const iconList: Icons[] = [
     {
       icon: <IoSearch className={iconClass} />,
       url: '/search',
@@ -26,14 +34,12 @@ export const NavIcons = () => {
     },
   ];
 
-  const filteredNavIcons = iconList.filter(
-    (icon) => icon.showAlways || (icon.desktopOnly && !isMobile)
-  );
+  const filteredNavIcons = iconList.filter((icon) => icon.showAlways || (icon.desktopOnly && !isMobile));
 
   return (
-    <ul className="flex items-center gap-2 md:p-2 md:gap-3">
+    <ul className='flex items-center gap-2 md:p-2 md:gap-3'>
       {filteredNavIcons.map((icon) => (
-        <Link to={icon.url} aria-label={icon.label} key={icon.label}>
+        <Link aria-label={icon.label} key={icon.label} to={icon.url}>
           <li>{icon.icon}</li>
         </Link>
       ))}
