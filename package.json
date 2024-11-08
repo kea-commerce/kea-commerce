@@ -4,6 +4,8 @@
   "license": "MIT",
   "scripts": {
     "dev:shop": "nx run kea-shop:serve",
+    "build:shop": "nx run kea-shop:build",
+    "preview:shop": "nx run kea-shop:preview",
     "lint": "nx run-many --target=lint"
   },
   "private": true,
