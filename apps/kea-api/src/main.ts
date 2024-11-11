@@ -6,13 +6,12 @@
 import express from 'express';
 import path from 'node:path';
 
+import productRoutes from './routes/products';
+
 const app = express();
 
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
-
-app.get('/api', (request, response) => {
-  response.send({ message: 'Welcome to kea-api!' });
-});
+app.use('/api/products', productRoutes);
 
 const port = process.env.PORT || 3333;
 const server = app.listen(port, () => {
