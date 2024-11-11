@@ -1,4 +1,5 @@
-/* eslint-disable */
+import type { Config } from 'jest';
+
 export default {
   displayName: 'kea-api',
   preset: '../../jest.preset.js',
@@ -8,4 +9,4 @@ export default {
   },
   moduleFileExtensions: ['ts', 'js', 'html'],
   coverageDirectory: '../../coverage/apps/kea-api',
-};
+} satisfies Config;
