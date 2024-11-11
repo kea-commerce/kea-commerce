@@ -2,7 +2,7 @@ import { isMobile } from 'react-device-detect';
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa6';
 
 import { NavLink } from './nav-link';
-import type { NavLinkItem } from './type';
+import type { NavLinkItem } from './types';
 
 export const NavLinks = () => {
   const navLinks: NavLinkItem[] = [

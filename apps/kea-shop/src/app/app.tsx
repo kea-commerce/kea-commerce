@@ -7,6 +7,7 @@ export const App = () => {
   return (
     <div>
       <Nav />
+
       <NxWelcome title='kea-shop' />
 
       <Footer />

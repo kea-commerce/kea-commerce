@@ -2,7 +2,7 @@ import { useCallback, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { ShopDropdown } from './shop-dropdown';
-import type { NavLinkIcon, NavLinkItem } from './type';
+import type { NavLinkIcon, NavLinkItem } from './types';
 
 type NavLinkProps = Readonly<{
   links: NavLinkItem;

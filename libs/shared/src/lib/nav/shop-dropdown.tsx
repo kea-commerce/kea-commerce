@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 
-import type { collection } from './type';
+import type { Collection } from './types';
 
-const collections: collection[] = [
+const collections: Collection[] = [
   { title: 'Bath & Body', link: 'bath-body' },
   { title: 'Home', link: 'home' },
   { title: 'Kids & Baby', link: 'kids-baby' },

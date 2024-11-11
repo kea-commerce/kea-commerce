@@ -3,7 +3,7 @@ import { IoSearch } from 'react-icons/io5';
 import { MdOutlineAccountCircle, MdOutlineShoppingCart } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 
-import type { LinkIcon } from './type';
+import type { LinkIcon } from './types';
 
 export const NavIcons = () => {
   const iconClass = 'border-2 border-black rounded-full p-0.5 w-8 h-8 md:p-1';
