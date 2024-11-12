@@ -5,9 +5,11 @@ import { Nav } from '@kea-commerce/shared/nav';
 
 export const App = () => {
   return (
-    <div>
+    <div className='min-h-screen flex flex-col'>
       <Nav />
+      <div className='flex-grow'>
       <Outlet />
+      </div>
       <Footer />
     </div>
   );
