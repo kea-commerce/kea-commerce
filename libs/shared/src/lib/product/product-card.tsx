@@ -1,4 +1,4 @@
-import type { Product } from './types';
+import type { Product } from '../models';
 
 type ProductCardProps = Readonly<{
   product: Product;
