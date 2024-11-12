@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { type FormEvent, useCallback, useState } from "react";
 import { useNavigate } from "react-router";
 
@@ -45,3 +46,8 @@ const Contact = () => {
 
 export default Contact;
 
+=======
+export const Contact = () => {
+  return <div>Contact</div>;
+};
+>>>>>>> main
