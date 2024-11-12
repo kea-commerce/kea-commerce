@@ -14,10 +14,10 @@ const collections: Collection[] = [
 
 export const ShopDropdown = () => {
   return (
-    <ul className='pl-7 pb-4 md:bg-lighterYellow md:absolute md:py-0.5 md:pr-5 md:pl-2 md:mt-2'>
+    <ul className='pl-7 pb-4 md:bg-lighterYellow md:pr-5 md:pl-2'>
       {collections.map((category) => (
         <Link aria-label={`shop for ${category.title}`} key={category.title} to={`collections/${category.link}`}>
-          <li>{category.title}</li>
+          <li className='py-1.5'>{category.title}</li>
         </Link>
       ))}
     </ul>
