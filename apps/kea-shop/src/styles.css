@@ -5,18 +5,16 @@
 
 @layer base {
   html {
-    font-family: 'mainFont';
+    font-family: 'Darker Grotesque';
   }
 }
 
 h1,
 h2 {
-  font-family: 'Darker Grotesque';
   font-weight: 500;
 }
 
 p,
 li {
-  font-family: 'Darker Grotesque';
   font-weight: 400;
 }
