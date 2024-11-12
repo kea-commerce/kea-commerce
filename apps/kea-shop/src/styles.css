@@ -9,14 +9,10 @@
   }
 }
 
-h1 {
-  font-family: 'Darker Grotesque';
-  font-weight: 500;
-}
-
+h1,
 h2 {
   font-family: 'Darker Grotesque';
-  font-weight: 550;
+  font-weight: 500;
 }
 
 p,

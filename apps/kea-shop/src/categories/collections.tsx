@@ -14,14 +14,17 @@ const collections: Collection[] = [
 
 export const Collections = () => {
   return (
-    <ul className='p-2 md:text-lg'>
-      {collections.map((category) => (
-        <li key={category.title}>
-          <Link aria-label={`shop for ${category.title}`} key={category.title} to={`/collections/${category.link}`}>
-            {category.title}
-          </Link>
-        </li>
-      ))}
-    </ul>
+    <div className='px-4 pt-4 h-screen w-fit md:text-2xl border border-slate-200'>
+      <h2>COLLECTIONS</h2>
+      <ul className='px-5 pt-1 pr-7 md:text-lg'>
+        {collections.map((category) => (
+          <li className='py-2' key={category.title}>
+            <Link aria-label={`shop for ${category.title}`} key={category.title} to={`/collections/${category.link}`}>
+              {category.title}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 };
