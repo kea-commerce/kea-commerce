@@ -34,8 +34,16 @@ const DEFAULT_OPTIONS: GenerateProductsOptions = {
  * @returns {string} the URL of the image
  */
 const generateProductImage = (name: string, width: number, height: number): string => {
-  const backgroundColor = faker.color.rgb({ format: 'hex', casing: 'lower' });
-  const textColor = faker.color.rgb({ format: 'hex', casing: 'lower' });
+  const backgroundColor = faker.color.rgb({
+    prefix: '',
+    format: 'hex',
+    casing: 'lower',
+  });
+  const textColor = faker.color.rgb({
+    prefix: '',
+    format: 'hex',
+    casing: 'lower',
+  });
   const encodedName = encodeURIComponent(name);
 
   return `https://dummyimage.com/${width}x${height}/${backgroundColor}/${textColor}&text=${encodedName}`;
@@ -78,7 +86,11 @@ export const generateMockProducts = (options: GenerateProductsOptions = {}): Pro
     }
 
     if (config.includeRating) {
-      baseProduct.rating = faker.number.float({ min: 1, max: 5, fractionDigits: 1 });
+      baseProduct.rating = faker.number.float({
+        min: 1,
+        max: 5,
+        fractionDigits: 1,
+      });
     }
 
     return baseProduct;
