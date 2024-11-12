@@ -10,3 +10,16 @@ export interface Product {
   createdAt: Date;
   updatedAt: Date;
 }
+
+export type ProductsResponse = Readonly<{
+  data: Product[];
+  metadata: ProductsResponseMetadata;
+}>;
+
+export interface ProductsResponseMetadata {
+  currentPage: number;
+  totalPages: number;
+  totalItems: number;
+  itemsPerPage: number;
+  hasMore: boolean;
+}

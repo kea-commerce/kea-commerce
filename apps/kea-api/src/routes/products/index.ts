@@ -1,21 +1,8 @@
 import express, { type Router } from 'express';
 
-import { type Product } from '@kea-commerce/shared/models';
+import { type ProductsResponse } from '@kea-commerce/shared/models';
 
 import { generateMockProducts } from './generate-mock-products';
-
-type Metadata = {
-  currentPage: number;
-  totalPages: number;
-  totalItems: number;
-  itemsPerPage: number;
-  hasMore: boolean;
-};
-
-type ProductsPayload = {
-  data: Product[];
-  metadata: Metadata;
-};
 
 const router: Router = express.Router();
 
@@ -38,7 +25,7 @@ router.get('/', async (request, response, next) => {
       itemsPerPage: 10,
       hasMore: false,
     },
-  } as ProductsPayload);
+  } as ProductsResponse);
 });
 
 export default router;
