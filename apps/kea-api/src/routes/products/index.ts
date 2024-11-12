@@ -1,8 +1,8 @@
 import express, { type Router } from 'express';
 
-import { type Product, products } from '../assets/consts';
+import { type Product } from '@kea-commerce/shared/models';
 
-const router: Router = express.Router();
+import { generateMockProducts } from './generate-mock-products';
 
 type Metadata = {
   currentPage: number;
@@ -13,11 +13,22 @@ type Metadata = {
 };
 
 type ProductsPayload = {
-  data: Product[]
+  data: Product[];
   metadata: Metadata;
-}
+};
+
+const router: Router = express.Router();
 
 router.get('/', async (request, response, next) => {
+  const products = generateMockProducts({
+    count: 5,
+    minPrice: 10,
+    maxPrice: 200,
+    includeDescription: true,
+    imageWidth: 300,
+    imageHeight: 300,
+  });
+
   response.status(200).json({
     data: products,
     metadata: {
