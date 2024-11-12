@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { type FormEvent, useCallback, useState } from "react";
+import { useNavigate } from "react-router";
 
 const Contact = () => {
 
@@ -10,6 +11,13 @@ const Contact = () => {
 
   const [formState, setFormState] = useState(formData)
 
+  const navigate = useNavigate()
+
+  const handleSubmit = useCallback(async (evt: FormEvent) => {
+    await submitNewContactReq.mutate({formState})
+    navigate('/contact-submitted')
+  }, [formData])
+
   return (
   <div className="flex justify-center gap-10">
   <div className="text-2xl">Contact Us</div>
@@ -17,17 +25,17 @@ const Contact = () => {
 <div>
   <form className="flex flex-col">
     <label htmlFor='name'>Name</label>
-    <input id='name' name='name' type='text' className="border"/>
+    <input id='name' name='name' type='text' required className="border"/>
   
 
     <label htmlFor='email'>Email</label>
-    <input id='email' name='email' type='text' className="border" />
+    <input id='email' name='email' type='text' required className="border" />
     
 
     <label htmlFor='name'>Message</label>
-    <textarea id='name' name='name' className="border" />
+    <textarea id='name' name='name' required className="border" />
     
-    <button type="button" className="border rounded mt-2 mb-2">Submit</button>
+    <button onClick={handleSubmit} type="button" className="border rounded mt-2 mb-2">Submit</button>
 
   </form>
   </div>
