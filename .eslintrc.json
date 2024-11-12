@@ -66,7 +66,7 @@
         ],
         "react/hook-use-state": "warn",
         "react/jsx-filename-extension": "off",
-        "react/jsx-max-depth": "warn",
+        "react/jsx-max-depth": "off",
         "react/jsx-no-bind": "warn",
         "react/jsx-no-leaked-render": "warn",
         "react/jsx-no-literals": "warn",
