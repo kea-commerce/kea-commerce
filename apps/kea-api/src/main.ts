@@ -3,11 +3,15 @@
  * This is only a minimal backend to get started.
  */
 
+import cors from 'cors';
 import express from 'express';
 
 import productRoutes from './routes/products';
 
 const app = express();
+
+// Enable CORS
+app.use(cors())
 
 app.use('/api/products', productRoutes);
 
