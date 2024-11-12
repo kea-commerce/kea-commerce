@@ -2,7 +2,7 @@ import { type RouteObject } from 'react-router-dom';
 
 import About from '../pages/about';
 import Cart from '../pages/cart';
-import { Categories } from '../pages/categories';
+import Categories from '../pages/categories';
 import Checkout from '../pages/checkout';
 import Contact from '../pages/contact';
 import Home from '../pages/home';
