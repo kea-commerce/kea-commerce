@@ -107,6 +107,7 @@
         "unicorn/import-style": "off",
         "unicorn/no-lonely-if": "warn",
         "unicorn/no-null": "warn",
+        "unicorn/prefer-global-this": "off",
         "unicorn/prefer-module": "off",
         "unicorn/prefer-query-selector": "warn",
         "unicorn/prevent-abbreviations": [
