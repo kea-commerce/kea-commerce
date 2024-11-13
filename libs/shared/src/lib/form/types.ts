@@ -1,4 +1,4 @@
 export type FormItems = {
-    name: string
-    type: string
-}
+  name: string;
+  type: string;
+};
