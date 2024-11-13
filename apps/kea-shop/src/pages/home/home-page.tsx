@@ -14,12 +14,12 @@ export const HomePage = () => {
   }
 
   return (
-    <>
+    <div className='flex flex-wrap justify-center gap-2'>
       {data?.data.map((product) => (
         <ProductCard key={product.id} product={product} />
       ))}
 
       {data?.metadata ? <HomePageMetadata metadata={data.metadata} /> : undefined}
-    </>
+    </div>
   );
 };
