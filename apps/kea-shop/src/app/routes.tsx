@@ -5,7 +5,7 @@ import { Cart } from '../pages/cart';
 import { Categories } from '../pages/categories';
 import { Checkout } from '../pages/checkout';
 import { Contact } from '../pages/contact';
-import { Home } from '../pages/home';
+import { HomePage } from '../pages/home';
 import { Order } from '../pages/order';
 import { Privacy } from '../pages/privacy';
 import { Product } from '../pages/product';
@@ -22,7 +22,7 @@ export const routes: RouteObject[] = [
     children: [
       {
         index: true,
-        element: <Home />,
+        element: <HomePage />,
       },
       {
         path: 'about',

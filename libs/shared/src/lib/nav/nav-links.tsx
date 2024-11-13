@@ -24,7 +24,7 @@ export const NavLinks = () => {
 
   return (
     <div className='gap-5 bg-white bg-opacity-50 rounded md:bg-lightYellow md:flex md:items-center'>
-      <ul className='md:flex md:items-center gap-4 py-5'>
+      <ul className='relative md:flex md:items-center gap-4 py-5'>
         {filteredNavLinks.map((link) => (
           <NavLink icons={link.icon} key={link.title} links={link} />
         ))}
