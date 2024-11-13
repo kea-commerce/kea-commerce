@@ -1,6 +1,6 @@
 import { ProductCard } from '@kea-commerce/shared/product';
 
-import { HomePageMetadata, useHomeData } from './lib';
+import { useHomeData } from './lib';
 
 export const HomePage = () => {
   const { isPending, isError, data, error } = useHomeData();
@@ -14,14 +14,10 @@ export const HomePage = () => {
   }
 
   return (
-    <>
-      <div className='grid grid-cols-2 justify-center gap-5 md:grid-cols-4'>
-        {data?.data.map((product) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
-      </div>
-
-      {data?.metadata ? <HomePageMetadata metadata={data.metadata} /> : undefined}
-    </>
+    <div className='grid grid-cols-2 justify-center gap-5 md:grid-cols-4'>
+      {data?.data.map((product) => (
+        <ProductCard key={product.id} product={product} />
+      ))}
+    </div>
   );
 };
