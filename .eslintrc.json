@@ -69,7 +69,7 @@
         "react/jsx-max-depth": "off",
         "react/jsx-no-bind": "warn",
         "react/jsx-no-leaked-render": "warn",
-        "react/jsx-no-literals": "warn",
+        "react/jsx-no-literals": "off",
         "react/jsx-props-no-spreading": "warn",
         "react/jsx-sort-props": "warn",
         "react/react-in-jsx-scope": "off",

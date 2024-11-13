@@ -1,17 +1,17 @@
 import { type RouteObject } from 'react-router-dom';
 
-import About from '../pages/about';
-import Cart from '../pages/cart';
-import Categories from '../pages/categories';
-import Checkout from '../pages/checkout';
-import Contact from '../pages/contact';
+import { About } from '../pages/about';
+import { Cart } from '../pages/cart';
+import { Categories } from '../pages/categories';
+import { Checkout } from '../pages/checkout';
+import { Contact } from '../pages/contact';
 import { HomePage } from '../pages/home';
-import Order from '../pages/order';
-import Privacy from '../pages/privacy';
-import Product from '../pages/product';
-import Search from '../pages/search';
-import Terms from '../pages/terms';
-import User from '../pages/user';
+import { Order } from '../pages/order';
+import { Privacy } from '../pages/privacy';
+import { Product } from '../pages/product';
+import { Search } from '../pages/search';
+import { Terms } from '../pages/terms';
+import { User } from '../pages/user';
 
 import { App } from './app';
 
