@@ -14,12 +14,14 @@ export const HomePage = () => {
   }
 
   return (
-    <div className='flex flex-wrap justify-center gap-2'>
-      {data?.data.map((product) => (
-        <ProductCard key={product.id} product={product} />
-      ))}
+    <>
+      <div className='grid grid-cols-2 justify-center gap-5 md:grid-cols-4'>
+        {data?.data.map((product) => (
+          <ProductCard key={product.id} product={product} />
+        ))}
+      </div>
 
       {data?.metadata ? <HomePageMetadata metadata={data.metadata} /> : undefined}
-    </div>
+    </>
   );
 };
