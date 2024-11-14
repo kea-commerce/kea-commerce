@@ -10,11 +10,11 @@ export const ProductCard = ({ product }: ProductCardProps) => {
       <div className='px-5 pt-5 pb-2'>
         <img
           alt={`Product of ${product.name}`}
-          className='w-full h-auto border-2 border-slate-200 max-w-max rounded-2xl '
+          className='w-full h-auto border-2 border-slate-200 max-w-max rounded-2xl'
           src={product.productImage}
         />
       </div>
-      <div className='text-center '>
+      <div className='text-center'>
         <h2 className='font-medium'>{product.name}</h2>
         <p className='font-bold'>{`$${product.price}`}</p>
       </div>
