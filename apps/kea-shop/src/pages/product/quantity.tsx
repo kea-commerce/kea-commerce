@@ -1,20 +1,20 @@
 import { useCallback, useState } from 'react';
 import { TfiMinus, TfiPlus } from 'react-icons/tfi';
 
-interface QuantityProps {
-  readonly stock?: number;
-}
+type QuantityProps = Readonly<{
+  stock: number;
+}>;
 
 export const Quantity = ({ stock }: QuantityProps) => {
-  const [productQuantity, setProductQuantity] = useState(1);
+  const [productQuantity, setProductQuantity] = useState<number>(1);
 
   const increaseQuantity = useCallback(() => {
-    if (stock && productQuantity < 10) {
-      if (productQuantity <= stock) {
-        setProductQuantity(productQuantity + 1);
-      }
-    } else if (stock === undefined && productQuantity < 10) {
+    if (stock && productQuantity < stock) {
       setProductQuantity(productQuantity + 1);
+    } else {
+      // setProductQuantity(productQuantity + 1);
+      // pop up msg re no stock
+      <p>no stock</p>;
     }
   }, [productQuantity, stock]);
 

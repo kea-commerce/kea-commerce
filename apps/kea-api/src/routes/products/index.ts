@@ -2,9 +2,16 @@ import express, { type Router } from 'express';
 
 import { type ProductsResponse } from '@kea-commerce/shared/models';
 
+import { mockProduct } from '../mock-product';
+
 import { generateMockProducts } from './generate-mock-products';
 
 const router: Router = express.Router();
+
+router.get('/id', async (request, response) => {
+  const product = mockProduct();
+  response.status(200).json({ data: product });
+});
 
 router.get('/', async (request, response, next) => {
   const products = generateMockProducts({
