@@ -1,40 +1,61 @@
-import { type FormEvent, useCallback, useState } from 'react';
-import { useNavigate } from 'react-router';
+import { type ChangeEvent, type FormEvent, useCallback, useState } from 'react';
 
 import { Button } from '../button/button';
 
+import { postContactUs } from './lib/post-contact-us-data.js';
 import { Label } from './label';
 import { type FormItems } from './types';
 
-const formItems: FormItems[] = [
-  { name: 'name', type: 'text' },
-  { name: 'email', type: 'text' },
-  { name: 'message', type: 'textarea' },
-];
-
 export const Form = () => {
-  const formData = {
+  const initialFormState = {
+    id: '',
     name: '',
     email: '',
     message: '',
   };
 
-  const [formState, setFormState] = useState(formData);
+  const [formState, setFormState] = useState(initialFormState);
+
+  const formItems: FormItems[] = [
+    { name: 'name', label: 'Name', type: 'text', value: formState.name, placeholder: `What's your full name?` },
+    { name: 'email', label: 'Email', type: 'text', value: formState.email, placeholder: 'you@example.co.nz' },
+    {
+      name: 'message',
+      label: 'Message',
+      type: 'textarea',
+      value: formState.message,
+      placeholder: 'Write your message for the team here',
+    },
+  ];
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = event.target;
+
+    setFormState((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
 
   const handleSubmit = useCallback(
     async (event: FormEvent) => {
-      await submitForm.mutate({ formState });
-      navigate('/contact-submitted');
+      await postContactUs(formState);
     },
-    [formData]
+    [formState]
   );
 
-  const navigate = useNavigate();
-
   return (
-    <form className='flex flex-col pr-24 pl-24 py-8'>
+    <form className='flex flex-col w-[100%] lg:max-w-[40%] 2xl:max-w-[20%]'>
       {formItems.map((item) => (
-        <Label key={item.name} name={item.name} type={item.type} />
+        <Label
+          handleChange={handleChange}
+          key={item.name}
+          label={item.label}
+          name={item.name}
+          placeholder={item.placeholder}
+          type={item.type}
+          value={item.value}
+        />
       ))}
       <Button onClick={handleSubmit} text='Submit' />
     </form>
