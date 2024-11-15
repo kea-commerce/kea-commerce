@@ -1,10 +1,10 @@
 import { useParams } from 'react-router-dom';
 
+import { useProductData } from './lib/use-product-data';
 import { AddToCartButton } from './add-to-cart-button';
 import { Quantity } from './quantity';
-import { useProductData } from './use-product-data';
 
-export const IndividualProduct = () => {
+export const ProductPage = () => {
   const { id } = useParams<string>();
   const { data, isError, isPending, error } = useProductData(id);
 
@@ -18,7 +18,7 @@ export const IndividualProduct = () => {
 
   return (
     <div className='flex-row justify-items-center mt-16 md:mt-0 md:flex md:justify-center md:bg-lighterYellow md:mx-16 md:h-screen md:items-center'>
-      <div className='flex justify-center items-center my-4 justify-around'>
+      <div className='flex items-center my-4 justify-around'>
         <img
           alt={`product of ${data.name}`}
           className='border-2 border-slate-200 max-w-max rounded-2xl md:min-w-96 md:m-4'
