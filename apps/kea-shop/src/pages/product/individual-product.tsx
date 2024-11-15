@@ -16,9 +16,6 @@ export const IndividualProduct = () => {
     return <span>Error: {error.message}</span>;
   }
 
-  console.log('all data', data);
-  console.log('price', data.price);
-
   return (
     <div className='flex-row justify-items-center mt-16 md:mt-0 md:flex md:justify-center md:bg-lighterYellow md:mx-16 md:h-screen md:items-center'>
       <div className='flex justify-center items-center my-4 justify-around'>
