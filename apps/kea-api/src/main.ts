@@ -6,14 +6,18 @@
 import cors from 'cors';
 import express from 'express';
 
+import contactUsRoutes from './routes/contact-us';
 import productRoutes from './routes/products';
 
 const app = express();
 
 // Enable CORS
-app.use(cors())
+app.use(cors());
+// Enable sending JSON body objects
+app.use(express.json());
 
 app.use('/api/products', productRoutes);
+app.use('/api/contact-us', contactUsRoutes);
 
 const port = process.env.PORT || 3333;
 const server = app.listen(port, () => {
