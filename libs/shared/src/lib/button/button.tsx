@@ -7,7 +7,7 @@ type ButtonProps = Readonly<{
 
 export const Button = ({ onClick, text }: ButtonProps) => {
   return (
-    <button className='border rounded mt-2 mb-2' onClick={onClick} type='button'>
+    <button className='border bg-keaGreen rounded-md m-auto mt-2 w-[40%] py-1' onClick={onClick} type='button'>
       {text}
     </button>
   );
