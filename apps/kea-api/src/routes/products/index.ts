@@ -15,7 +15,7 @@ router.get('/:id', async (request, response) => {
 
 router.get('/', async (request, response, next) => {
   const products = generateMockProducts({
-    count: 5,
+    count: 24,
     minPrice: 10,
     maxPrice: 200,
     includeDescription: true,
@@ -29,7 +29,7 @@ router.get('/', async (request, response, next) => {
       currentPage: 0,
       totalPages: 1,
       totalItems: products.length,
-      itemsPerPage: 10,
+      itemsPerPage: 24,
       hasMore: false,
     },
   } as ProductsResponse);
