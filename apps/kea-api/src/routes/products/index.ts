@@ -8,9 +8,9 @@ import { generateMockProducts } from './generate-mock-products';
 
 const router: Router = express.Router();
 
-router.get('/id', async (request, response) => {
+router.get('/:id', async (request, response) => {
   const product = mockProduct();
-  response.status(200).json({ data: product });
+  response.status(200).json({ product: product });
 });
 
 router.get('/', async (request, response, next) => {

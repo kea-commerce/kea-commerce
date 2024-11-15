@@ -27,7 +27,9 @@ export const Quantity = ({ stock }: QuantityProps) => {
       <button aria-label='decrease quantity of product' onClick={decreaseQuantity} type='button'>
         <TfiMinus />
       </button>
-      <p className='border border-2 py-1 px-3 mx-4 min-w-9 max-w-9'>{productQuantity}</p>
+      <p className='border border-2 py-1 px-3 mx-4 md:min-w-12 md:max-w-12 min-w-9 max-w-9 bg-white flex justify-center'>
+        {productQuantity}
+      </p>
       <button aria-label='increase quantity of product' onClick={increaseQuantity} type='button'>
         <TfiPlus />
       </button>

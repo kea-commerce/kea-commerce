@@ -18,7 +18,7 @@ export const mockProduct = () => {
     id: '2d16767d-935a-4b98-ad4d-d8f6bb61aac6',
     name: 'Coffee Robot',
     price: 60,
-    productImage: 'https://dummyimage.com/200x200/#e28743/#21130d&text=coffee%20robot%20',
+    productImage: 'https://dummyimage.com/200x200/e28743/21130d&text=coffee+robot',
     description: 'This robot will make your coffee every morning to wake you, stunning',
     category: 'Home',
     stock: 15,

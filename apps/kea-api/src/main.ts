@@ -14,7 +14,7 @@ const app = express();
 app.use(cors());
 
 app.use('/api/products', productRoutes);
-app.use('api/products/id', productRoutes);
+// app.use('api/products/id', productRoutes);
 
 const port = process.env.PORT || 3333;
 const server = app.listen(port, () => {
