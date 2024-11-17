@@ -6,13 +6,17 @@ type ProductCardProps = Readonly<{
 
 export const ProductCard = ({ product }: ProductCardProps) => {
   return (
-    <div>
-      <div className='w-full'>
-        <img alt={product.name} className='w-full h-auto' src={product.productImage} />
+    <div className='flex flex-col items-center'>
+      <div className='px-5 pt-5 pb-2'>
+        <img
+          alt={`Product of ${product.name}`}
+          className='w-full h-auto border-2 border-slate-200 max-w-max rounded-2xl'
+          src={product.productImage}
+        />
       </div>
-      <div className='mt-2 text-center'>
-        <h1>{product.name}</h1>
-        <h2>{product.price}</h2>
+      <div className='text-center'>
+        <h2 className='font-medium'>{product.name}</h2>
+        <p className='font-bold'>{`$${product.price}`}</p>
       </div>
     </div>
   );
