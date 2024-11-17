@@ -4,7 +4,7 @@ import { About } from '../pages/about';
 import { Cart } from '../pages/cart';
 import { Categories } from '../pages/categories';
 import { Checkout } from '../pages/checkout';
-import { Contact } from '../pages/contact';
+import { Contact } from '../pages/contact-us/contact';
 import { HomePage } from '../pages/home';
 import { Order } from '../pages/order';
 import { Privacy } from '../pages/privacy';
