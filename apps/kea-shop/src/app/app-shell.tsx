@@ -5,11 +5,7 @@ import { QueryClient } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { PersistQueryClientProvider } from '@tanstack/react-query-persist-client';
 
-import { type CustomWindow } from '@kea-commerce/shared/models';
-
 import { routes } from './routes';
-
-declare const window: CustomWindow;
 
 const router = createBrowserRouter(routes);
 
