@@ -12,4 +12,5 @@ export type AboutUs = {
   linkedinIcon: JSX.Element;
   github: string;
   githubIcon: JSX.Element;
+  aboutMe: string;
 };
