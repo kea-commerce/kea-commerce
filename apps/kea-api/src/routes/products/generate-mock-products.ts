@@ -8,7 +8,6 @@ interface GenerateProductsOptions {
   maxPrice?: number;
   includeDescription?: boolean;
   includeCategory?: boolean;
-  includeStock?: boolean;
   includeRating?: boolean;
   imageWidth?: number;
   imageHeight?: number;
@@ -20,7 +19,6 @@ const DEFAULT_OPTIONS: GenerateProductsOptions = {
   maxPrice: 100,
   includeDescription: true,
   includeCategory: true,
-  includeStock: true,
   includeRating: true,
   imageWidth: 200,
   imageHeight: 200,
@@ -67,6 +65,7 @@ export const generateMockProducts = (options: GenerateProductsOptions = {}): Pro
         max: config.maxPrice,
         fractionDigits: 2,
       }),
+      stock: faker.number.int({ min: 0, max: 1000 }),
       productImage: generateProductImage(name, config.imageWidth!, config.imageHeight!),
       createdAt: faker.date.past(),
       updatedAt: faker.date.recent(),
@@ -79,10 +78,6 @@ export const generateMockProducts = (options: GenerateProductsOptions = {}): Pro
 
     if (config.includeCategory) {
       baseProduct.category = faker.commerce.department();
-    }
-
-    if (config.includeStock) {
-      baseProduct.stock = faker.number.int({ min: 0, max: 1000 });
     }
 
     if (config.includeRating) {
