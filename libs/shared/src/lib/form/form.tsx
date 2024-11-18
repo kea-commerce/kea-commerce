@@ -1,4 +1,4 @@
-import { type ChangeEvent, type FormEvent, useCallback, useState } from 'react';
+import { type ChangeEvent, useCallback, useState } from 'react';
 
 import { Button } from '../button/button';
 
@@ -37,13 +37,9 @@ export const Form = () => {
     }));
   };
 
-  const handleSubmit = useCallback(
-    async (event: FormEvent) => {
-      event.preventDefault();
-      await postContactUs(formState);
-    },
-    [formState]
-  );
+  const handleSubmit = useCallback(async () => {
+    await postContactUs(formState);
+  }, [formState]);
 
   return (
     <form className='flex flex-col w-[100%] lg:max-w-[40%] 2xl:max-w-[20%]' onSubmit={handleSubmit}>
