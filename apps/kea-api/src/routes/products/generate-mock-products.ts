@@ -26,6 +26,9 @@ const DEFAULT_OPTIONS: GenerateProductsOptions = {
   imageHeight: 200,
 };
 
+const categories = ['Bath & Body', 'Home', 'Kids & Baby', 'Kitchen', 'Laundry & Cleaning', 'Pets'];
+const max = categories.length;
+
 /**
  * Generates a placeholder product image URL
  * @param {string} name the product name on the image
@@ -78,7 +81,7 @@ export const generateMockProducts = (options: GenerateProductsOptions = {}): Pro
     }
 
     if (config.includeCategory) {
-      baseProduct.category = faker.commerce.department();
+      baseProduct.category = categories[Math.floor(Math.random() * max)];
     }
 
     if (config.includeStock) {
