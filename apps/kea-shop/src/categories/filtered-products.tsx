@@ -1,9 +1,13 @@
+import { useParams } from 'react-router';
+
 import { ProductCard } from '@kea-commerce/shared/product';
 
-import { useProductsData } from './lib';
+import { useFilteredProductsData } from './lib/use-filtered-products';
 
-export const AllProducts = () => {
-  const { isPending, isError, data, error } = useProductsData();
+export const FilteredProducts = () => {
+  const { collection } = useParams<{ collection: string }>();
+
+  const { isPending, isError, data, error } = useFilteredProductsData(collection);
 
   if (isPending) {
     return <span>Loading...</span>;

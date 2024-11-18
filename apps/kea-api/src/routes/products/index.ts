@@ -6,6 +6,31 @@ import { generateMockProducts } from './generate-mock-products';
 
 const router: Router = express.Router();
 
+router.get('/:category', async (request, response, next) => {
+  const { category } = request.params;
+  const categoryProducts = generateMockProducts({
+    count: 24,
+    minPrice: 10,
+    maxPrice: 200,
+    includeDescription: true,
+    imageWidth: 300,
+    imageHeight: 300,
+  });
+
+  const filteredCategory = categoryProducts.filter((product) => product.category === category);
+
+  response.status(200).json({
+    data: filteredCategory,
+    metadata: {
+      currentPage: 0,
+      totalPages: 1,
+      totalItems: filteredCategory.length,
+      itemsPerPage: 24,
+      hasMore: false,
+    },
+  });
+});
+
 router.get('/', async (request, response, next) => {
   const products = generateMockProducts({
     count: 24,
