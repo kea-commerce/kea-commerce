@@ -39,13 +39,14 @@ export const Form = () => {
 
   const handleSubmit = useCallback(
     async (event: FormEvent) => {
+      event.preventDefault();
       await postContactUs(formState);
     },
     [formState]
   );
 
   return (
-    <form className='flex flex-col w-[100%] lg:max-w-[40%] 2xl:max-w-[20%]'>
+    <form className='flex flex-col w-[100%] lg:max-w-[40%] 2xl:max-w-[20%]' onSubmit={handleSubmit}>
       {formItems.map((item) => (
         <Label
           handleChange={handleChange}
@@ -57,7 +58,7 @@ export const Form = () => {
           value={item.value}
         />
       ))}
-      <Button onClick={handleSubmit} text='Submit' type='submit' />
+      <Button text='Submit' />
     </form>
   );
 };
