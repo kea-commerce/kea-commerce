@@ -1,6 +1,6 @@
 import { type RouteObject } from 'react-router-dom';
 
-import { About } from '../pages/about';
+import { About } from '../pages/about/about';
 import { Cart } from '../pages/cart';
 import { Categories } from '../pages/categories';
 import { Checkout } from '../pages/checkout';
