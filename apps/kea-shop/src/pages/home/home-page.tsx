@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import { ProductCard } from '@kea-commerce/shared/product';
 
 import { useHomeData } from './lib';
@@ -16,7 +18,9 @@ export const HomePage = () => {
   return (
     <div className='grid grid-cols-2 justify-center gap-5 md:grid-cols-4'>
       {data?.data.map((product) => (
-        <ProductCard key={product.id} product={product} />
+        <Link key={product.id} to={`products/${product.name}/${product.id}`}>
+          <ProductCard key={product.id} product={product} />
+        </Link>
       ))}
     </div>
   );
