@@ -11,7 +11,7 @@ import productRoutes from './routes/products';
 const app = express();
 
 // Enable CORS
-app.use(cors())
+app.use(cors());
 
 app.use('/api/products', productRoutes);
 

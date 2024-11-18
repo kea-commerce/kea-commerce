@@ -8,7 +8,7 @@ import { Contact } from '../pages/contact';
 import { HomePage } from '../pages/home';
 import { Order } from '../pages/order';
 import { Privacy } from '../pages/privacy';
-import { Product } from '../pages/product';
+import { ProductPage } from '../pages/product';
 import { Search } from '../pages/search';
 import { Terms } from '../pages/terms';
 import { User } from '../pages/user';
@@ -54,7 +54,7 @@ export const routes: RouteObject[] = [
       },
       {
         path: 'products/:name/:id',
-        element: <Product />,
+        element: <ProductPage />,
       },
       {
         path: 'search',
