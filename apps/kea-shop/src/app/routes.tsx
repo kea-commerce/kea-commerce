@@ -1,8 +1,8 @@
 import { type RouteObject } from 'react-router-dom';
 
+import { Categories } from '../categories/categories-page';
 import { About } from '../pages/about';
 import { Cart } from '../pages/cart';
-import { Categories } from '../pages/categories';
 import { Checkout } from '../pages/checkout';
 import { Contact } from '../pages/contact';
 import { HomePage } from '../pages/home';

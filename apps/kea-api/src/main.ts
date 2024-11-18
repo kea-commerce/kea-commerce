@@ -11,9 +11,10 @@ import productRoutes from './routes/products';
 const app = express();
 
 // Enable CORS
-app.use(cors())
+app.use(cors());
 
 app.use('/api/products', productRoutes);
+app.use('/api/collections/shop', productRoutes);
 
 const port = process.env.PORT || 3333;
 const server = app.listen(port, () => {

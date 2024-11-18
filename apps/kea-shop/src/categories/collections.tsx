@@ -14,7 +14,7 @@ const collections: Collection[] = [
 
 export const Collections = () => {
   return (
-    <div className='px-4 pt-4 h-screen w-fit md:text-2xl border border-slate-200'>
+    <div className='px-4 pt-4 h-full w-fit md:text-2xl border border-slate-200'>
       <h2>COLLECTIONS</h2>
       <ul className='px-5 pt-1 pr-7 md:text-lg'>
         {collections.map((category) => (
