@@ -57,7 +57,7 @@ export const Form = () => {
           value={item.value}
         />
       ))}
-      <Button onClick={handleSubmit} text='Submit' />
+      <Button onClick={handleSubmit} text='Submit' type='submit' />
     </form>
   );
 };
