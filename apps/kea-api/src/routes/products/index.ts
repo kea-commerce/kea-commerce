@@ -13,7 +13,7 @@ router.get('/:id', async (request, response) => {
   response.status(200).json({ product: product });
 });
 
-router.get('/:category', async (request, response, next) => {
+router.get('/collections/:category', async (request, response, next) => {
   const { category } = request.params;
   const categoryProducts = generateMockProducts({
     count: 24,
