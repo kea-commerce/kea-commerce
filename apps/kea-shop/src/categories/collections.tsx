@@ -18,7 +18,7 @@ export const Collections = () => {
       <h2>COLLECTIONS</h2>
       <ul className='px-5 pt-1 pr-7 md:text-lg'>
         {collections.map((category) => (
-          <li className='py-2' key={category.title}>
+          <li className='py-2 hover:text-xl active:font-medium' key={category.title}>
             <Link aria-label={`shop for ${category.title}`} key={category.title} to={`/collections/${category.link}`}>
               {category.title}
             </Link>
