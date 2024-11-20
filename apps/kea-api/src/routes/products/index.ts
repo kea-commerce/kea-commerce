@@ -13,7 +13,7 @@ router.get('/:id', async (request, response) => {
   response.status(200).json({ product: product });
 });
 
-router.get('/collections/:category', async (request, response, next) => {
+router.get('/collections/:category', async (request, response) => {
   const { category } = request.params;
   const categoryProducts = generateMockProducts({
     count: 24,
@@ -38,7 +38,7 @@ router.get('/collections/:category', async (request, response, next) => {
   });
 });
 
-router.get('/collections/shop', async (request, response, next) => {
+router.get('/collections/shop', async (request, response) => {
   const products = generateMockProducts({
     count: 24,
     minPrice: 10,
@@ -60,7 +60,7 @@ router.get('/collections/shop', async (request, response, next) => {
   } as ProductsResponse);
 });
 
-router.get('/', async (request, response, next) => {
+router.get('/', async (request, response) => {
   const products = generateMockProducts({
     count: 24,
     minPrice: 10,
