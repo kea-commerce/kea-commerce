@@ -1,6 +1,6 @@
 import { AboutMemberCard } from './about-member-card';
 
-export const About = () => {
+export const AboutPage = () => {
   const aboutInfo = {
     aboutImage: 'https://dummyimage.com/300x300/cccccc/000000&text=About+Us',
     info: 'Writing effectively is an art. Start by using simple, everyday words people can easily understand. Be clear and direct to the point. Keep your thoughts flowing logically, and aim for brevity unless you&aposre writing in the long form. Your ideas have a purpose so choose words that accurately express them. Ensure your grammar is flawless as it impacts your credibility. Use the active voice whenever possible as it makes any narrative easier to read.',
