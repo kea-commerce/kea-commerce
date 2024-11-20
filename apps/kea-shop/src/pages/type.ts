@@ -1,3 +1,5 @@
+import { type IconType } from 'react-icons';
+
 export type Products = {
   name: string;
   price: number;
@@ -9,8 +11,8 @@ export type AboutUs = {
   name: string;
   role: string;
   linkedin: string;
-  linkedinIcon: JSX.Element;
+  linkedinIcon: IconType;
   github: string;
-  githubIcon: JSX.Element;
+  githubIcon: IconType;
   aboutMe: string;
 };

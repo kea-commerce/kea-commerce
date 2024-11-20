@@ -1,4 +1,4 @@
-import { AboutMemberCard } from './about-member-card';
+import { AboutMemberCardWrapper } from './about-member-card-wrapper';
 
 export const AboutPage = () => {
   const aboutInfo = {
@@ -13,7 +13,7 @@ export const AboutPage = () => {
           <p className='font-medium md:text-lg'>{aboutInfo.info}</p>
         </div>
       </div>
-      <AboutMemberCard />
+      <AboutMemberCardWrapper />
     </div>
   );
 };
