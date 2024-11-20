@@ -38,6 +38,28 @@ router.get('/collections/:category', async (request, response, next) => {
   });
 });
 
+router.get('/collections/shop', async (request, response, next) => {
+  const products = generateMockProducts({
+    count: 24,
+    minPrice: 10,
+    maxPrice: 200,
+    includeDescription: true,
+    imageWidth: 300,
+    imageHeight: 300,
+  });
+
+  response.status(200).json({
+    data: products,
+    metadata: {
+      currentPage: 0,
+      totalPages: 1,
+      totalItems: products.length,
+      itemsPerPage: 24,
+      hasMore: false,
+    },
+  } as ProductsResponse);
+});
+
 router.get('/', async (request, response, next) => {
   const products = generateMockProducts({
     count: 24,
