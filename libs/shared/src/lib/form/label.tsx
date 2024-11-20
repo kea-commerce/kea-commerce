@@ -1,4 +1,4 @@
-import { type ChangeEvent, type FormEvent, type InvalidEvent, useCallback, useState } from 'react';
+import { type ChangeEvent, type FormEvent, useCallback, useState } from 'react';
 
 type LabelProps = Readonly<{
   name: string;
@@ -12,10 +12,10 @@ type LabelProps = Readonly<{
 export const Label = ({ name, type, value, placeholder, label, handleChange }: LabelProps) => {
   const [isInvalid, setIsInvalid] = useState(false);
 
-  const handleInvalid = useCallback((event: InvalidEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    event.preventDefault();
-    setIsInvalid(true);
-  }, []);
+  // const handleInvalid = useCallback((event: InvalidEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  //   event.preventDefault();
+  //   setIsInvalid(true);
+  // }, []);
 
   const handleInput = useCallback((event: FormEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setIsInvalid(false);
@@ -35,7 +35,7 @@ export const Label = ({ name, type, value, placeholder, label, handleChange }: L
           name={name}
           onChange={handleChange}
           onInput={handleInput}
-          onInvalid={handleInvalid}
+          // onInvalid={handleInvalid}
           placeholder={value === '' ? placeholder : value}
           required
           type={type}
@@ -50,7 +50,7 @@ export const Label = ({ name, type, value, placeholder, label, handleChange }: L
           name={name}
           onChange={handleChange}
           onInput={handleInput}
-          onInvalid={handleInvalid}
+          // onInvalid={handleInvalid}
           placeholder={value === '' ? placeholder : value}
           required
           value={value}

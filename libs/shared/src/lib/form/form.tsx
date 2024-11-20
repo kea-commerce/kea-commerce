@@ -2,7 +2,7 @@ import { type ChangeEvent, useCallback, useState } from 'react';
 
 import { Button } from '../button/button';
 
-import { postContactUs } from './lib/post-contact-us-data.js';
+import { postContactUs } from './lib/post-contact-us-data';
 import { Label } from './label';
 import { type FormItems } from './types';
 
