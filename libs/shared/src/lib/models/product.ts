@@ -1,14 +1,17 @@
 export interface Product {
+  // GUID
   id: string;
   name: string;
   price: number;
   productImage: string;
+  stock: number;
   description?: string;
   category?: string;
-  stock: number;
   rating?: number;
-  createdAt: Date;
-  updatedAt: Date;
+  // ISO 8601 datetime string
+  createdAt: string;
+  // ISO 8601 datetime string
+  updatedAt: string;
 }
 
 export type ProductsResponse = Readonly<{
