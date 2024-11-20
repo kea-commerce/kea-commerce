@@ -1,3 +1,5 @@
+import { LegalTerms } from '@kea-commerce/shared/legalTerms/index';
+
 export const Terms = () => {
-  return <div>Terms</div>;
+  return <LegalTerms />;
 };
