@@ -1,16 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 
-import type { Collection } from '@kea-commerce/shared/nav/types';
-
-const collections: Collection[] = [
-  { title: 'All Products', link: 'shop' },
-  { title: 'Bath & Body', link: 'bath-body' },
-  { title: 'Home', link: 'home' },
-  { title: 'Kids & Baby', link: 'kids-baby' },
-  { title: 'Kitchen', link: 'kitchen' },
-  { title: 'Laundry & Cleaning', link: 'laundry-cleaning' },
-  { title: 'Pets', link: 'pets' },
-];
+import { collections } from './lib/collections';
 
 export const Collections = () => {
   const { pathname } = useLocation();
