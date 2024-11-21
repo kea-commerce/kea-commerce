@@ -1,11 +1,15 @@
-import { useCallback, useState } from 'react';
+import { useState } from 'react';
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa6';
 
 import { TermsAndConditions } from './terms-and-conditions';
 
 export const LegalTerms = () => {
-  // State to track open/close status for each section
-  const [openSections, setOpenSections] = useState<Record<number, boolean>>({});
+  const [openSections, setOpenSections] = useState<Record<number, boolean>>(() =>
+    TermsAndConditions.sections.reduce((accumulator, section) => {
+      accumulator[section.sectionNumber] = true;
+      return accumulator;
+    }, {} as Record<number, boolean>)
+  );
 
   const toggleSection = (sectionNumber: number) => {
     setOpenSections((prevState) => ({
@@ -15,27 +19,29 @@ export const LegalTerms = () => {
   };
 
   return (
-    <div className=''>
+    <div>
       <div className='justify-items-center w-full text-3xl p-10'>
         <h1>{TermsAndConditions.title}</h1>
       </div>
       <div className='p-10 pt-0'>
         {TermsAndConditions.sections.map((section) => (
           <div key={section.sectionNumber}>
-            <button onClick={() => toggleSection(section.sectionNumber)} type='button'>
+            <button className='flex items-center' onClick={() => toggleSection(section.sectionNumber)} type='button'>
               <h2 className='font-bold text-2xl'>{`${section.sectionNumber}. ${section.heading}`}</h2>
               {openSections[section.sectionNumber] ? (
-                <FaChevronDown className='w-8' />
+                <FaChevronUp className='w-8 ml-2' />
               ) : (
-                <FaChevronUp className='w-8' />
+                <FaChevronDown className='w-8 ml-2' />
               )}
             </button>
-            <p>{section.information}</p>
-            {section.subSections && section.subSections.length > 0 ? (
+            {openSections[section.sectionNumber] ? (
+              <p className=' border-t border-t-black-500'>{section.information}</p>
+            ) : undefined}
+            {openSections[section.sectionNumber] && section.subSections && section.subSections.length > 0 ? (
               <div>
                 {section.subSections.map((subSection) => (
                   <div key={subSection.subSectionNumber}>
-                    <h3>{`${subSection.subSectionNumber} ${subSection.subHeading}`}</h3>
+                    <h3 className='font-semibold text-base'>{`${subSection.subSectionNumber} ${subSection.subHeading}`}</h3>
                     <p>{subSection.subInformation}</p>
                   </div>
                 ))}
