@@ -1,1 +1,1 @@
-export { useProductsData } from './use-filtered-products';
+export { useAllProductsData } from './use-all-products-data';

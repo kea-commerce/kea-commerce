@@ -14,31 +14,6 @@ router.get('/:id', async (request, response) => {
 });
 
 router.get('/collections/:category', async (request, response) => {
-  const { category } = request.params;
-  const categoryProducts = generateMockProducts({
-    count: 24,
-    minPrice: 10,
-    maxPrice: 200,
-    includeDescription: true,
-    imageWidth: 300,
-    imageHeight: 300,
-  });
-
-  const filteredCategory = categoryProducts.filter((product) => product.category === category);
-
-  response.status(200).json({
-    data: filteredCategory,
-    metadata: {
-      currentPage: 0,
-      totalPages: 1,
-      totalItems: filteredCategory.length,
-      itemsPerPage: 24,
-      hasMore: false,
-    },
-  });
-});
-
-router.get('/collections/shop', async (request, response) => {
   const products = generateMockProducts({
     count: 24,
     minPrice: 10,
