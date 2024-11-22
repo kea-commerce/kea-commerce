@@ -9,6 +9,9 @@
     "build:api": "nx run kea-api:build",
     "build:shop": "nx run kea-shop:build",
     "preview:shop": "nx run kea-shop:preview",
+    "db:migrate": "nx run db:migrate:up",
+    "db:rollback": "nx run db:migrate:down",
+    "db:seed": "nx run db:seed",
     "lint": "nx run-many --target=lint"
   },
   "private": true,

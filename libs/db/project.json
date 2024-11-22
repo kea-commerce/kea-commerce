@@ -26,6 +26,13 @@
           "command": "knex migrate:rollback --knexfile=src/lib/knexfile.ts"
         }
       }
+    },
+    "seed": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "knex seed:run --knexfile=src/lib/knexfile.ts",
+        "cwd": "libs/db"
+      }
     }
   }
 }
