@@ -13,7 +13,7 @@ export const Quantity = ({ stock }: QuantityProps) => {
   }, [productQuantity, stock]);
 
   const decreaseQuantity = useCallback(() => {
-    if (productQuantity > 0) setProductQuantity(productQuantity - 1);
+    if (productQuantity > 1) setProductQuantity(productQuantity - 1);
   }, [productQuantity]);
 
   const noStock = <p className='text-base text-center md:text-xl'>Sold Out</p>;
@@ -21,7 +21,7 @@ export const Quantity = ({ stock }: QuantityProps) => {
   return (
     <div className='flex justify-center items-center'>
       <button aria-label='decrease quantity of product' onClick={decreaseQuantity} type='button'>
-        <TfiMinus />
+        {productQuantity === 1 ? <TfiMinus className='opacity-25' /> : <TfiMinus />}
       </button>
       <div className='border-2 py-1 px-3 mx-4 md:min-w-14 md:max-w-14 min-w-10 max-w-10 bg-white flex justify-center'>
         {stock === 0 ? noStock : productQuantity}
