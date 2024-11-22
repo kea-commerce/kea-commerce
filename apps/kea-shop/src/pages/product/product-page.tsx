@@ -17,30 +17,28 @@ export const ProductPage = () => {
   }
 
   return (
-    <div className='min-h-fit flex items-center justify-center p-4  md:bg-lighterYellow'>
-      <div className='container max-w-7xl'>
-        <div className='flex flex-col p-2 md:flex-row md:gap-8 md:items-center md:justify-center'>
-          <div className='md:w-1/2 lg:w-2/5'>
-            <img
-              alt={`product of ${data.name}`}
-              className='w-full border-2 border-slate-200 rounded-2xl'
-              src={data.productImage}
-            />
+    <div className='flex items-center justify-center p-4 pt-12 md:bg-lighterYellow'>
+      <div className='flex flex-col md:flex-row md:gap-8 md:items-center md:justify-center'>
+        <div className='md:w-1/2 lg:w-2/5'>
+          <img
+            alt={`product of ${data.name}`}
+            className='w-full border-2 border-slate-200 rounded-2xl md:w-96'
+            src={data.productImage}
+          />
+        </div>
+        <div className='flex flex-col md:w-1/2 lg:w-3/5 space-y-6'>
+          <div className='space-y-2'>
+            <h2 className='font-medium text-3xl pt-6 md:pt-0 md:text-4xl lg:text-6xl'>{data.name}</h2>
+            <p className='font-medium text-xl md:text-2xl lg:text-4xl'>${data.price}</p>
           </div>
-          <div className='flex flex-col md:w-1/2 lg:w-3/5 space-y-6'>
-            <div className='space-y-2'>
-              <h2 className='font-medium text-3xl pt-6 md:pt-0 md:text-4xl lg:text-6xl'>{data.name}</h2>
-              <p className='font-medium text-xl md:text-2xl lg:text-4xl'>${data.price}</p>
-            </div>
-            <div className='flex flex-row items-center gap-10 md:text-xl lg:text-2xl'>
-              Quantity:
-              <Quantity stock={data.stock} />
-              <AddToCartButton />
-            </div>
-            <div className='space-y-2'>
-              <h3 className='font-semibold text-xl md:text-2xl lg:text-3xl'>Description</h3>
-              <p className='md:text-lg lg:text-xl'>{data.description}</p>
-            </div>
+          <div className='flex flex-row items-center gap-10 md:text-xl lg:text-2xl'>
+            Quantity:
+            <Quantity stock={data.stock} />
+            <AddToCartButton />
+          </div>
+          <div className='space-y-2'>
+            <h3 className='font-semibold text-xl md:text-2xl lg:text-3xl'>Description</h3>
+            <p className='md:text-lg lg:text-xl'>{data.description}</p>
           </div>
         </div>
       </div>
