@@ -13,6 +13,7 @@ const app = express();
 // Enable CORS
 app.use(cors());
 
+// Add more routes here, orders etc
 app.use('/api/products', productRoutes);
 
 const port = process.env.PORT || 3333;
