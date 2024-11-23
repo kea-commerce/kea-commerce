@@ -1,13 +1,8 @@
 <div align="center">
-  <img src="apps/kea-shop/public/leafIcon.png" width="120" alt="Kea-Commerce Logo" align="left" style="margin-right: 10px">
-  <h1 align="center">Kea-Commerce</h1>
+  <img src="apps/kea-shop/public/leafIcon.png" width="125" alt="Kea-Commerce Logo">
+  <h1>Kea-Commerce</h1>
 </div>
 
-<div align="center">
-  An e-commerce app
-</div>
-
----
 <br />
 
 ## Getting Started
