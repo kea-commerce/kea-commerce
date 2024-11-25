@@ -8,7 +8,7 @@ export const LegalTermsNavbar = ({ terms }: LegalTermsNavbarProps) => {
     <div className='pl-2 sticky top-20'>
       {terms.sections.map((sections) => (
         <ul key={sections.information}>
-          <a className='hover:text-lightGreen' href={`terms#${sections.heading}`} id={sections.heading}>
+          <a className='hover:text-lightGreen' href={`terms#${sections.heading}`}>
             <li className='py-3 font-semibold '>{`${sections.sectionNumber}. ${sections.heading}`}</li>
           </a>
         </ul>
