@@ -5,10 +5,12 @@ type LegalTermsNavbarProps = {
 };
 export const LegalTermsNavbar = ({ terms }: LegalTermsNavbarProps) => {
   return (
-    <div className='pl-2'>
+    <div className='pl-2 sticky top-20'>
       {terms.sections.map((sections) => (
         <ul key={sections.information}>
-          <li className='py-3 font-semibold '>{`${sections.sectionNumber}. ${sections.heading}`}</li>
+          <a className='hover:text-lightGreen' href={`terms#${sections.heading}`} id={sections.heading}>
+            <li className='py-3 font-semibold '>{`${sections.sectionNumber}. ${sections.heading}`}</li>
+          </a>
         </ul>
       ))}
     </div>

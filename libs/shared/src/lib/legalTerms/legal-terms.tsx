@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { isMobile } from 'react-device-detect';
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa6';
 
 import { LegalTermsNavbar } from './legal-terms-navbar';
@@ -25,12 +26,19 @@ export const LegalTerms = () => {
         <h1>{TermsAndConditions.title}</h1>
       </div>
       <div className='flex flex-row'>
-        <LegalTermsNavbar terms={TermsAndConditions} />
+        <div>{isMobile ? undefined : <LegalTermsNavbar terms={TermsAndConditions} />}</div>
         <div className='p-10 pt-0'>
           {TermsAndConditions.sections.map((section) => (
             <div key={section.sectionNumber}>
-              <button className='flex items-center' onClick={() => toggleSection(section.sectionNumber)} type='button'>
-                <h2 className='font-bold text-2xl'>{`${section.sectionNumber}. ${section.heading}`}</h2>
+              <button
+                className='flex items-center py-2'
+                onClick={() => toggleSection(section.sectionNumber)}
+                type='button'
+              >
+                <h2
+                  className='font-bold text-2xl'
+                  id={section.heading}
+                >{`${section.sectionNumber}. ${section.heading}`}</h2>
                 {openSections[section.sectionNumber] ? (
                   <FaChevronUp className='w-8 ml-2' />
                 ) : (
