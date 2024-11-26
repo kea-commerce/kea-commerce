@@ -1,15 +1,19 @@
+import { useLocation } from 'react-router';
+
 import type { LegalTermsLayout } from './type';
 
 type LegalTermsNavbarProps = {
-  readonly terms: LegalTermsLayout;
+  readonly navbarContent: LegalTermsLayout;
 };
-export const LegalTermsNavbar = ({ terms }: LegalTermsNavbarProps) => {
+export const LegalTermsNavbar = ({ navbarContent }: LegalTermsNavbarProps) => {
+  const { pathname } = useLocation();
+  const path = pathname.slice(1);
   return (
     <div className='pl-2 sticky top-20'>
-      {terms.sections.map((sections) => (
-        <ul key={sections.information}>
-          <a className='hover:text-lightGreen' href={`terms#${sections.heading}`}>
-            <li className='py-3 font-semibold '>{`${sections.sectionNumber}. ${sections.heading}`}</li>
+      {navbarContent.sections.map((navbar) => (
+        <ul key={navbar.information}>
+          <a className='hover:text-lightGreen' href={`${path}#${navbar.heading}`}>
+            <li className='py-3 font-semibold '>{`${navbar.sectionNumber}. ${navbar.heading}`}</li>
           </a>
         </ul>
       ))}

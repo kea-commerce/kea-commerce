@@ -11,3 +11,17 @@ export type LegalTermsLayout = {
     }[];
   }[];
 };
+
+export type TermsDropDown = {
+  title: string;
+  sections: {
+    sectionNumber: number;
+    heading: string;
+    information: string;
+    subSections?: {
+      subSectionNumber: string;
+      subHeading: string;
+      subInformation: string;
+    }[];
+  }[];
+};
