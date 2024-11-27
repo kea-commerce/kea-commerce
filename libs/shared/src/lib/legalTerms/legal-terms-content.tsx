@@ -40,9 +40,11 @@ export const LegalTermsContent = ({ content }: LegalTermsContentProps) => {
               <FaChevronDown className='w-8 ml-2' />
             )}
           </button>
+
           {openSections[section.sectionNumber] ? (
             <p className=' border-t border-t-black-500'>{section.information}</p>
           ) : undefined}
+
           {openSections[section.sectionNumber] && section.subSections && section.subSections.length > 0 ? (
             <div>
               {section.subSections.map((subSection) => (
