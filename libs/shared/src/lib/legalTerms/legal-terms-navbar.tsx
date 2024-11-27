@@ -2,9 +2,10 @@ import { useLocation } from 'react-router';
 
 import type { LegalTermsLayout } from './type';
 
-type LegalTermsNavbarProps = {
-  readonly navbarContent: LegalTermsLayout;
-};
+type LegalTermsNavbarProps = Readonly<{
+  navbarContent: LegalTermsLayout;
+}>;
+
 export const LegalTermsNavbar = ({ navbarContent }: LegalTermsNavbarProps) => {
   const { pathname } = useLocation();
   const path = pathname.slice(1);
