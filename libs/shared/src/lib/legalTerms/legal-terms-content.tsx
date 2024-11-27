@@ -3,9 +3,9 @@ import { FaChevronDown, FaChevronUp } from 'react-icons/fa6';
 
 import type { LegalTermsLayout } from './type';
 
-type LegalTermsContentProps = {
-  readonly content: LegalTermsLayout;
-};
+type LegalTermsContentProps = Readonly<{
+  content: LegalTermsLayout;
+}>;
 
 export const LegalTermsContent = ({ content }: LegalTermsContentProps) => {
   const [openSections, setOpenSections] = useState<Record<number, boolean>>(() => {
