@@ -9,6 +9,7 @@ type LegalTermsNavbarProps = Readonly<{
 export const LegalTermsNavbar = ({ navbarContent }: LegalTermsNavbarProps) => {
   const { pathname } = useLocation();
   const path = pathname.slice(1);
+
   return (
     <div className='pl-2 sticky top-20'>
       {navbarContent.sections.map((navbar) => (
