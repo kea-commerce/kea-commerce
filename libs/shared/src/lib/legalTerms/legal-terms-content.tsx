@@ -31,10 +31,9 @@ export const LegalTermsContent = ({ content }: LegalTermsContentProps) => {
       {content.sections.map((section) => (
         <div key={section.sectionNumber}>
           <button className='flex items-center py-2' onClick={handleToggleSection(section.sectionNumber)} type='button'>
-            <h2
-              className='font-bold text-2xl'
-              id={section.heading}
-            >{`${section.sectionNumber}. ${section.heading}`}</h2>
+            <h2 className='font-bold text-2xl' id={section.heading}>
+              {`${section.sectionNumber}. ${section.heading}`}
+            </h2>
             {openSections[section.sectionNumber] ? (
               <FaChevronUp className='w-8 ml-2' />
             ) : (
