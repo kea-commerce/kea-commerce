@@ -13,7 +13,7 @@ router.get('/:id', async (request, response) => {
   response.status(200).json({ product: product });
 });
 
-router.get('/', async (request, response, next) => {
+router.get('/', async (request, response) => {
   const products = generateMockProducts({
     count: 24,
     minPrice: 10,

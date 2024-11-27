@@ -8,7 +8,7 @@ export const App = () => {
     <div className='min-h-screen flex flex-col'>
       <Nav />
       <div className='flex-grow'>
-      <Outlet />
+        <Outlet />
       </div>
       <Footer />
     </div>

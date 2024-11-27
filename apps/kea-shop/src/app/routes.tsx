@@ -2,7 +2,7 @@ import { type RouteObject } from 'react-router-dom';
 
 import { AboutPage } from '../pages/about';
 import { Cart } from '../pages/cart';
-import { Categories } from '../pages/categories';
+import { CategoriesPage } from '../pages/categories';
 import { Checkout } from '../pages/checkout';
 import { Contact } from '../pages/contact';
 import { HomePage } from '../pages/home';
@@ -34,7 +34,7 @@ export const routes: RouteObject[] = [
       },
       {
         path: 'collections/:collection',
-        element: <Categories />,
+        element: <CategoriesPage />,
       },
       {
         path: 'checkout',
