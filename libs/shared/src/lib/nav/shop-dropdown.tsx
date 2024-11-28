@@ -5,7 +5,7 @@ import type { Collection } from './types';
 const collections: Collection[] = [
   { title: 'All Products', link: 'shop' },
   { title: 'Bath & Body', link: 'bath-body' },
-  { title: 'Home', link: 'home' },
+  { title: 'Household', link: 'household' },
   { title: 'Kids & Baby', link: 'kids-baby' },
   { title: 'Kitchen', link: 'kitchen' },
   { title: 'Laundry & Cleaning', link: 'laundry-cleaning' },

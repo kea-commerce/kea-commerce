@@ -1,7 +1,10 @@
 import { useParams } from 'react-router-dom';
 
+import { collections } from '../categories/lib/collections';
+
 import { useProductData } from './lib/use-product-data';
 import { AddToCartButton } from './add-to-cart-button';
+import { ProductBreadcrumb } from './product-breadcrumbs';
 import { Quantity } from './quantity';
 
 export const ProductPage = () => {
@@ -16,8 +19,15 @@ export const ProductPage = () => {
     return <span>Error: {error.message}</span>;
   }
 
+  const collectionBreadcrumb = collections.find((collection) => collection.title === data.category);
+
   return (
     <div className='flex items-center justify-center p-4 pt-12 md:bg-lighterYellow'>
+      <ProductBreadcrumb
+        collectionLink={collectionBreadcrumb?.link}
+        collectionName={data.category}
+        productName={data.name}
+      />
       <div className='flex flex-col md:flex-row md:gap-8 md:items-center md:justify-center'>
         <div className='md:w-1/2 lg:w-2/5'>
           <img
