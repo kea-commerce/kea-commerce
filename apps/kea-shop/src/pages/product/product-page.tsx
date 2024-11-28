@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 
-import { collections } from '../categories/lib/collections';
+import { collections } from '@kea-commerce/shared/collections-types';
 
 import { useProductData } from './lib/use-product-data';
 import { AddToCartButton } from './add-to-cart-button';

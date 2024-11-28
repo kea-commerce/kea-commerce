@@ -1,16 +1,6 @@
 import { Link } from 'react-router-dom';
 
-import type { Collection } from './types';
-
-const collections: Collection[] = [
-  { title: 'All Products', link: 'shop' },
-  { title: 'Bath & Body', link: 'bath-body' },
-  { title: 'Household', link: 'household' },
-  { title: 'Kids & Baby', link: 'kids-baby' },
-  { title: 'Kitchen', link: 'kitchen' },
-  { title: 'Laundry & Cleaning', link: 'laundry-cleaning' },
-  { title: 'Pets', link: 'pets' },
-];
+import { collections } from '../collections-types';
 
 export const ShopDropdown = () => {
   return (

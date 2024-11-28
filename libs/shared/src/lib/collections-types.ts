@@ -1,4 +1,4 @@
-import type { Collection } from '@kea-commerce/shared/nav/types';
+import type { Collection } from './nav/types';
 
 export const collections: Collection[] = [
   { title: 'All Products', link: 'shop' },

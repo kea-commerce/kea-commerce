@@ -1,8 +1,8 @@
 import { useParams } from 'react-router';
 
+import { collections } from '@kea-commerce/shared/collections-types';
 import { ProductCard } from '@kea-commerce/shared/product';
 
-import { collections } from './lib/collections';
 import { useAllProductsData } from './lib/use-all-products-data';
 import { CategoriesBreadcrumb } from './categories-breadcrumb';
 
