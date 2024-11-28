@@ -24,7 +24,7 @@ const DEFAULT_OPTIONS: GenerateProductsOptions = {
   imageHeight: 200,
 };
 
-const categories = ['bath-body', 'home', 'kids-baby', 'kitchen', 'laundry-cleaning', 'pets'];
+const categories = ['bath-body', 'household', 'kids-baby', 'kitchen', 'laundry-cleaning', 'pets'];
 const max = categories.length;
 
 /**
