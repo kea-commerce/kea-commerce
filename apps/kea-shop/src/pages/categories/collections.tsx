@@ -1,6 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 
-import { collections } from './lib/collections';
+import { collections } from '@kea-commerce/shared/collections-types';
 
 export const Collections = () => {
   const { pathname } = useLocation();
