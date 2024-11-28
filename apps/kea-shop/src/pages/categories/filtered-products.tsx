@@ -1,3 +1,4 @@
+import { isMobile } from 'react-device-detect';
 import { useParams } from 'react-router';
 
 import { collections } from '@kea-commerce/shared/collections-types';
@@ -24,7 +25,9 @@ export const FilteredProducts = () => {
 
   return (
     <>
-      <CategoriesBreadcrumb collectionName={collectionNames?.title} collectionType={collection} />
+      <div className={isMobile ? 'sticky top-0 bg-white py-5 bg-opacity-90' : 'py-5'}>
+        <CategoriesBreadcrumb collectionName={collectionNames?.title} />
+      </div>
 
       <div className='grid grid-cols-2 justify-center gap-5 md:grid-cols-4'>
         {collection === 'shop'
