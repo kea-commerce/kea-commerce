@@ -6,6 +6,8 @@ import { ProductCard } from '@kea-commerce/shared/product';
 
 import { useAllProductsData } from './lib/use-all-products-data';
 
+type SortingFunction = (products: Product[]) => Product[];
+
 export const FilteredProducts = () => {
   const { collection } = useParams<{ collection: string }>();
   const { data: allProducts, isError, error, isPending } = useAllProductsData();
@@ -16,7 +18,7 @@ export const FilteredProducts = () => {
   const handleChangeFilter = useCallback(
     (event: React.ChangeEvent<HTMLSelectElement>) => {
       const selectedMethod = event.target.value;
-      const sortingMethods = {
+      const sortingMethods: { [key: string]: SortingFunction } = {
         alphabeticallyFromA: (products: Product[]) => [...products].sort((a, b) => a.name.localeCompare(b.name)),
         alphabeticallyFromZ: (products: Product[]) => [...products].sort((a, b) => b.name.localeCompare(a.name)),
         lowToHighPrice: (products: Product[]) => [...products].sort((a, b) => a.price - b.price),
@@ -25,18 +27,20 @@ export const FilteredProducts = () => {
         bestSelling: (products: Product[]) => [...products].sort((a, b) => a.stock - b.stock),
       };
 
-      const sortFunction = sortingMethods[selectedMethod];
+      const sortFunction = sortingMethods[selectedMethod as keyof typeof sortingMethods];
 
-      const productsToSort =
+      const productsToSort: Product[] =
         collection === 'shop'
-          ? allProducts?.data
-          : allProducts?.data.filter((product) => product.category === collection);
+          ? allProducts?.data || []
+          : allProducts?.data.filter((product) => product.category === collection) || [];
 
       const sortedProducts = sortFunction ? sortFunction(productsToSort) : productsToSort;
 
+      setSortMethod(selectedMethod);
+
       setFilteredProducts(sortedProducts);
     },
-    [allProducts, collection]
+    [allProducts?.data, collection]
   );
 
   useEffect(() => {
@@ -67,8 +71,8 @@ export const FilteredProducts = () => {
           <select name='filterProductsBy' onChange={handleChangeFilter} value={sortMethod}>
             <option value='featured'>Featured</option>
             <option value='bestSelling'>Best Selling</option>
-            <option value='highToLowPrice'>By Price High to Low</option>
-            <option value='lowToHighPrice'>By Price Low to High</option>
+            <option value='highToLowPrice'>Price High to Low</option>
+            <option value='lowToHighPrice'>Price Low to High</option>
             <option value='alphabeticallyFromA'>Alphabetically from A-Z</option>
             <option value='alphabeticallyFromZ'>Alphabetically from Z-A</option>
           </select>
