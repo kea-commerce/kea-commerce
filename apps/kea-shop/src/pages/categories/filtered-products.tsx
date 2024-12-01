@@ -6,10 +6,9 @@ import { collections } from '@kea-commerce/shared/collections-types';
 import { type Product } from '@kea-commerce/shared/models';
 import { ProductCard } from '@kea-commerce/shared/product';
 
+import { sortingMethods } from './lib/sorting-methods';
 import { useAllProductsData } from './lib/use-all-products-data';
 import { CategoriesBreadcrumb } from './categories-breadcrumb';
-
-type SortingFunction = (products: Product[]) => Product[];
 
 export const FilteredProducts = () => {
   const { collection } = useParams<{ collection: string }>();
@@ -21,14 +20,6 @@ export const FilteredProducts = () => {
   const handleChangeFilter = useCallback(
     (event: React.ChangeEvent<HTMLSelectElement>) => {
       const selectedMethod = event.target.value;
-      const sortingMethods: { [key: string]: SortingFunction } = {
-        alphabeticallyFromA: (products: Product[]) => [...products].sort((a, b) => a.name.localeCompare(b.name)),
-        alphabeticallyFromZ: (products: Product[]) => [...products].sort((a, b) => b.name.localeCompare(a.name)),
-        lowToHighPrice: (products: Product[]) => [...products].sort((a, b) => a.price - b.price),
-        highToLowPrice: (products: Product[]) => [...products].sort((a, b) => b.price - a.price),
-        featured: (products: Product[]) => [...products].sort((a, b) => b.stock - a.stock),
-        bestSelling: (products: Product[]) => [...products].sort((a, b) => a.stock - b.stock),
-      };
 
       const sortFunction = sortingMethods[selectedMethod as keyof typeof sortingMethods];
 
@@ -40,7 +31,6 @@ export const FilteredProducts = () => {
       const sortedProducts = sortFunction ? sortFunction(productsToSort) : productsToSort;
 
       setSortMethod(selectedMethod);
-
       setFilteredProducts(sortedProducts);
     },
     [allProducts?.data, collection]
