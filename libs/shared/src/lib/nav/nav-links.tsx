@@ -8,7 +8,7 @@ export const NavLinks = () => {
   const navLinks: NavLinkItem[] = [
     {
       title: 'SHOP',
-      url: '/collections/:collection',
+      url: '/collections/shop',
       icon: {
         iconDown: <FaChevronDown className='w-8' />,
         iconUp: <FaChevronUp className='w-8' />,
