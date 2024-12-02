@@ -7,7 +7,7 @@ type CategoriesBreadcrumbProps = Readonly<{
 
 export const CategoriesBreadcrumb = ({ collectionName }: CategoriesBreadcrumbProps) => {
   return (
-    <div className='flex flex-row items-center px-5 md:px-5 text-lg md:text-xl xl:px-14 lg:text-2xl md:gap-1'>
+    <div className='flex flex-row items-center px-5 md:pl-5 text-lg md:text-xl xl:pl-14 lg:text-2xl md:gap-1'>
       <Link className='hover:font-medium' to='/'>
         Home
       </Link>

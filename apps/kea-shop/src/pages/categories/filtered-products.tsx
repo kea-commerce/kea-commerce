@@ -48,12 +48,23 @@ export const FilteredProducts = ({ products }: FilteredProductsProps) => {
   }, [products, collection]);
 
   return (
-    <>
-      <div className='flex justify-between items-center'>
-        <div className={isMobile ? 'sticky top-0 bg-white py-3 bg-opacity-90' : 'py-5'}>
-          <CategoriesBreadcrumb collectionName={collectionNames?.title} />
-        </div>
-        <div className={isMobile ? 'px-5 pb-3 text-lg' : 'text-xl'}>
+    <div className='relative'>
+      <div
+        className={`
+          ${
+            isMobile
+              ? 'sticky top-0 bg-white bg-opacity-90 z-10 w-full py-2'
+              : 'hidden md:flex md:justify-between md:items-center md:w-full'
+          }
+        `}
+      >
+        <CategoriesBreadcrumb collectionName={collectionNames?.title} />
+
+        <div
+          className={`
+              ${isMobile ? 'px-5 text-lg pt-2' : 'text-lg md:text-xl md: pr-4 2xl:pr-14'}
+            `}
+        >
           <label>
             Filter Products:
             <select className='border-2 ml-2' name='filterProductsBy' onChange={handleChangeFilter} value={sortMethod}>
@@ -68,11 +79,11 @@ export const FilteredProducts = ({ products }: FilteredProductsProps) => {
         </div>
       </div>
 
-      <div className='grid grid-cols-1 justify-center gap-5 md:grid-cols-4'>
+      <div className='grid grid-cols-1 justify-center gap-5 md:grid-cols-4 mt-4'>
         {filteredProducts?.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
       </div>
-    </>
+    </div>
   );
 };

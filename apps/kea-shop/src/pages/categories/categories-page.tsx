@@ -1,5 +1,4 @@
 import { isMobile } from 'react-device-detect';
-import { useParams } from 'react-router';
 
 import { Collections } from './collections';
 import { FilteredProducts } from './filtered-products';
@@ -19,7 +18,7 @@ export const CategoriesPage = () => {
   return (
     <div className='md:flex md:w-full md:h-fit'>
       <div className='flex-none sticky top-0 md:h-screen'>{isMobile ? undefined : <Collections />}</div>
-      <div className='w-full'>
+      <div className='w-full pt-5 pb-10'>
         <FilteredProducts products={allProducts.data} />
       </div>
     </div>
