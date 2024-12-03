@@ -1,20 +1,18 @@
 import { type ChangeEvent, useCallback, useState } from 'react';
 
-import { Button } from '../button/button';
+import { Button } from '@kea-commerce/shared/button';
 
 import { postContactUs } from './lib/post-contact-us-data';
 import { Label } from './label';
-import { type FormItems } from './types';
+import type { ContactUsFormData, FormItems } from './types';
 
-export const Form = () => {
-  const initialFormState = {
+export const ContactUsForm = () => {
+  const [formState, setFormState] = useState<ContactUsFormData>({
     id: '',
     name: '',
     email: '',
     message: '',
-  };
-
-  const [formState, setFormState] = useState(initialFormState);
+  });
 
   const formItems: FormItems[] = [
     { name: 'name', label: 'Name', type: 'text', value: formState.name, placeholder: `What's your full name?` },
@@ -28,14 +26,14 @@ export const Form = () => {
     },
   ];
 
-  const handleChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = useCallback((event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = event.target;
 
     setFormState((prev) => ({
       ...prev,
       [name]: value,
     }));
-  };
+  }, []);
 
   const handleSubmit = useCallback(async () => {
     await postContactUs(formState);

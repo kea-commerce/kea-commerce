@@ -5,3 +5,10 @@ export type FormItems = {
   value: string;
   placeholder: string;
 };
+
+export interface ContactUsFormData {
+  id: string;
+  name: string;
+  email: string;
+  message: string;
+}
