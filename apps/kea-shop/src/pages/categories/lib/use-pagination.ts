@@ -1,20 +1,29 @@
 import { useMemo } from 'react';
 
 type PaginationProps = {
-  totalCount;
-  pageSize;
-  siblingCount;
-  currentPage;
+  totalItems: number;
+  itemsPerPage: number;
+  totalPages: number;
+  siblingCount: number;
+  currentPage: number;
 };
 export const DOTS = '...';
-export const usePagination = ({ totalCount, pageSize, siblingCount = 1, currentPage }: PaginationProps) => {
+export const usePagination = ({
+  totalItems,
+  itemsPerPage,
+  totalPages,
+  siblingCount = 1,
+  currentPage,
+}: PaginationProps) => {
   const paginationRange = useMemo(() => {
-    const totalPageCount = Math.ceil(totalCount / pageSize);
+    const totalPageCount = Math.ceil(totalPages);
+    console.log('totalPageCount', totalPageCount);
 
     const range = (start: number, end: number) => {
       const length = end - start + 1;
       return Array.from({ length }, (_, index) => index + start);
     };
+    console.log('range is a function', range);
 
     const totalPageNumbers = siblingCount + 5;
 
@@ -23,7 +32,9 @@ export const usePagination = ({ totalCount, pageSize, siblingCount = 1, currentP
     }
 
     const leftSiblingIndex = Math.max(currentPage - siblingCount, 1);
+    console.log('leftSiblingIndex', leftSiblingIndex);
     const rightSiblingIndex = Math.min(currentPage + siblingCount, totalPageCount);
+    console.log('rightSiblingIndex', rightSiblingIndex);
 
     const shouldShowLeftDots = leftSiblingIndex > 2;
     const shouldShowRightDots = rightSiblingIndex < totalPageCount - 2;
@@ -47,7 +58,7 @@ export const usePagination = ({ totalCount, pageSize, siblingCount = 1, currentP
       const middleRange = range(leftSiblingIndex, rightSiblingIndex);
       return [firstPageIndex, DOTS, ...middleRange, DOTS, lastPageIndex];
     }
-  }, [totalCount, pageSize, siblingCount, currentPage]);
+  }, [totalPages, siblingCount, currentPage]);
 
   return paginationRange;
 };

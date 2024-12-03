@@ -6,17 +6,22 @@ import { FilteredProducts } from './filtered-products';
 import { useAllProductsData } from './lib';
 import { PaginationCategories } from './pagination-categories';
 
-const PageSize = 3;
-
 export const CategoriesPage = () => {
   const { data: allProducts, isError, error, isPending } = useAllProductsData();
   const [currentPage, setCurrentPage] = useState(1);
 
+  const meta = allProducts?.metadata;
+  const itemsPerPage = meta?.itemsPerPage;
+
   const currentProductData = useMemo(() => {
-    const firstPageIndex = (currentPage - 1) * PageSize;
-    const lastPageIndex = firstPageIndex + PageSize;
+    const firstPageIndex = (currentPage - 1) * itemsPerPage;
+    const lastPageIndex = firstPageIndex + itemsPerPage;
     return allProducts?.data.slice(firstPageIndex, lastPageIndex);
-  }, [currentPage]);
+  }, [currentPage, allProducts, itemsPerPage]);
+
+  const onPageChangeHandle = useMemo(() => {
+    return (page) => setCurrentPage(page);
+  }, []);
 
   return (
     <div className='flex w-full h-fit'>
@@ -31,9 +36,11 @@ export const CategoriesPage = () => {
       </div>
       <PaginationCategories
         currentPage={currentPage}
-        onPageChange={(page) => setCurrentPage(page)}
-        pageSize={PageSize}
-        totalCount={allProducts?.data.length}
+        itemsPerPage={itemsPerPage}
+        onPageChange={onPageChangeHandle}
+        pageSize={meta?.itemsPerPage}
+        totalCount={meta?.totalPages}
+        totalPages={meta?.totalPages}
       />
     </div>
   );
