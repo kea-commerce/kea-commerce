@@ -4,7 +4,7 @@ import { AboutPage } from '../pages/about';
 import { Cart } from '../pages/cart';
 import { CategoriesPage } from '../pages/categories';
 import { Checkout } from '../pages/checkout';
-import { Contact } from '../pages/contact';
+import { ContactUsPage } from '../pages/contact-us';
 import { HomePage } from '../pages/home';
 import { Order } from '../pages/order';
 import { Privacy } from '../pages/privacy';
@@ -42,7 +42,7 @@ export const routes: RouteObject[] = [
       },
       {
         path: 'contact',
-        element: <Contact />,
+        element: <ContactUsPage />,
       },
       {
         path: 'order/:id',
