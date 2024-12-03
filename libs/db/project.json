@@ -19,6 +19,9 @@
         "cwd": "libs/db"
       },
       "configurations": {
+        "make": {
+          "command": "knex migrate:make --knexfile=src/lib/knexfile.ts"
+        },
         "up": {
           "command": "knex migrate:latest --knexfile=src/lib/knexfile.ts"
         },
@@ -32,6 +35,15 @@
       "options": {
         "command": "knex seed:run --knexfile=src/lib/knexfile.ts",
         "cwd": "libs/db"
+      },
+      "configurations": {
+        "make": {
+          "command": "knex seed:make --knexfile=src/lib/knexfile.ts",
+          "cwd": "libs/db"
+        },
+        "latest": {
+          "command": "knex seed:run --knexfile=src/lib/knexfile.ts"
+        }
       }
     }
   }

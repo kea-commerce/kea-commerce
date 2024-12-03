@@ -65,3 +65,39 @@ Then normal SQL commands can be run, for example:
 SELECT *
 FROM products;
 ```
+
+#### Database Migrations
+
+To create a new migration, run the following command:
+
+```shell
+pnpm db:migrate:make migration_name
+```
+
+To run the migrations, use this command:
+
+```shell
+pnpm db:migrate
+```
+
+To roll back the migrations, use this command:
+
+```shell
+pnpm db:migrate:rollback
+```
+
+#### Database Seeding
+
+To create a new seed, run the following command:
+
+```shell
+pnpm db:seed:make seed_name
+```
+
+To run the seeds, use this command:
+
+```shell
+pnpm db:seed
+```
+
+For more information on database commands, check the `package.json` file and the `libs/db/project.json` file.
