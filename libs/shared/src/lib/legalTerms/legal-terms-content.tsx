@@ -30,8 +30,12 @@ export const LegalTermsContent = ({ content }: LegalTermsContentProps) => {
     <div>
       {content.sections.map((section) => (
         <div key={section.sectionNumber}>
-          <button className='flex items-center py-2' onClick={handleToggleSection(section.sectionNumber)} type='button'>
-            <h2 className='font-bold text-2xl' id={section.heading}>
+          <button
+            className='flex items-center py-2 md:py-4'
+            onClick={handleToggleSection(section.sectionNumber)}
+            type='button'
+          >
+            <h2 className='font-bold text-2xl text-left' id={section.heading}>
               {`${section.sectionNumber}. ${section.heading}`}
             </h2>
             {openSections[section.sectionNumber] ? (
@@ -41,14 +45,14 @@ export const LegalTermsContent = ({ content }: LegalTermsContentProps) => {
             )}
           </button>
           {openSections[section.sectionNumber] ? (
-            <p className=' border-t border-t-black-500'>{section.information}</p>
+            <p className=' border-t border-t-black-500'>{section.sectionInformation}</p>
           ) : undefined}
           {openSections[section.sectionNumber] && section.subSections && section.subSections.length > 0 ? (
             <div>
               {section.subSections.map((subSection) => (
-                <div key={subSection.subSectionNumber}>
-                  <h3 className='font-semibold text-base'>{`${subSection.subSectionNumber} ${subSection.subHeading}`}</h3>
-                  <p>{subSection.subInformation}</p>
+                <div key={subSection.subInformation}>
+                  <h3 className='font-semibold text-base pt-3'>{`${subSection.subHeading}`}</h3>
+                  <p className='pb-2 md:pb-4 md:pt-2'>{subSection.subInformation}</p>
                 </div>
               ))}
             </div>

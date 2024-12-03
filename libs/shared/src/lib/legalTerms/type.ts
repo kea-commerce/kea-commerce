@@ -1,5 +1,4 @@
 type SubSection = {
-  subSectionNumber: string;
   subHeading: string;
   subInformation: string;
 };
@@ -7,11 +6,12 @@ type SubSection = {
 type Section = {
   sectionNumber: number;
   heading: string;
-  information: string;
+  sectionInformation?: string;
   subSections?: SubSection[];
 };
 
 export type LegalTermsLayout = {
+  effectiveDate?: string;
   title: string;
   sections: Section[];
 };
