@@ -5,6 +5,7 @@ const path = require('node:path');
 module.exports = {
   content: [
     path.join(__dirname, '{src,pages,components,app}/**/*!(*.stories|*.spec).{ts,tsx,html}'),
+    path.join(__dirname, '{src,pages,components,app}/**/*!(*.stories|*.spec).{ts,tsx,html}'),
     ...createGlobPatternsForDependencies(__dirname),
   ],
   theme: {
@@ -12,6 +13,8 @@ module.exports = {
       colors: {
         lightYellow: '#f5edd6',
         lighterYellow: '#faf6eb',
+        lightGrey: '#d5dce3',
+        keaGreen: '#8cd86b',
         lighterGreen: '#8cd86b',
         lightGreen: '#4da73f',
       },
