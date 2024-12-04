@@ -15,8 +15,10 @@ export interface Product {
 }
 
 export type ProductsResponse = Readonly<{
-  data: Product[];
-  metadata: ProductsResponseMetadata;
+  error?: string;
+  message?: string;
+  data?: Product[];
+  metadata?: ProductsResponseMetadata;
 }>;
 
 export interface ProductsResponseMetadata {

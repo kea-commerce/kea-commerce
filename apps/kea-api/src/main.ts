@@ -6,6 +6,7 @@
 import cors from 'cors';
 import express from 'express';
 
+import collectionsRoutes from './routes/collections';
 import contactUsRoutes from './routes/contact-us';
 import productRoutes from './routes/products';
 
@@ -17,8 +18,9 @@ app.use(cors());
 app.use(express.json());
 
 // Add more routes here, orders etc
-app.use('/api/products', productRoutes);
+app.use('/api/collections', collectionsRoutes);
 app.use('/api/contact-us', contactUsRoutes);
+app.use('/api/products', productRoutes);
 
 const port = process.env.PORT || 3333;
 const server = app.listen(port, () => {
