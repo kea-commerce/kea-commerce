@@ -39,7 +39,18 @@ router.get('/:collection', async (request: CollectionRequest, response: Response
     let countQuery = keaCommDatabase('products').count('* as count');
     // Base query for products
     let productsQuery = keaCommDatabase('products')
-      .select('*')
+      .select(
+        'id',
+        'name',
+        'price',
+        'product_image as productImage',
+        'stock',
+        'description',
+        'category',
+        'rating',
+        'created_at as createdAt',
+        'updated_at as updatedAt'
+      )
       .orderBy('created_at', 'desc')
       .limit(limit)
       .offset(offset);
