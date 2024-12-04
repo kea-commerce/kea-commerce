@@ -1,7 +1,7 @@
 import { RxSlash } from 'react-icons/rx';
 import { Link } from 'react-router-dom';
 
-import { defaultCollection } from '@kea-commerce/shared/collections-types';
+import { defaultCollection } from '@kea-commerce/shared/collections';
 
 type CategoriesBreadcrumbProps = Readonly<{
   collectionName: string | undefined;

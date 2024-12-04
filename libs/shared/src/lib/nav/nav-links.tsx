@@ -1,7 +1,7 @@
 import { isMobile } from 'react-device-detect';
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa6';
 
-import { defaultCollection } from '../collections-types';
+import { defaultCollection } from '../collections/types';
 
 import { NavLink } from './nav-link';
 import type { NavLinkItem } from './types';

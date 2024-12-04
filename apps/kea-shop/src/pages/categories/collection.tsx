@@ -1,7 +1,7 @@
 import { type FC } from 'react';
 import { isMobile } from 'react-device-detect';
 
-import { collections } from '@kea-commerce/shared/collections-types';
+import { collections } from '@kea-commerce/shared/collections';
 import { ProductCard } from '@kea-commerce/shared/product';
 
 import { CategoriesBreadcrumb } from './categories-breadcrumb';
@@ -31,7 +31,7 @@ export const Collection: FC<CollectionProps> = ({ collection = 'all' }) => {
       </div>
 
       <div className='grid grid-cols-2 justify-center gap-5 md:grid-cols-4'>
-        {products.data.map((product) => (
+        {products.data?.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
       </div>
