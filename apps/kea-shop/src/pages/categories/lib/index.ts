@@ -1,1 +1,1 @@
-export { useAllProductsData } from './use-all-products-data';
+export { useCollectionData } from './use-collection-data';

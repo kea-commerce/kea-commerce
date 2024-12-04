@@ -1,26 +1,27 @@
+import { type FC } from 'react';
 import { isMobile } from 'react-device-detect';
-import { useParams } from 'react-router';
 
 import { collections } from '@kea-commerce/shared/collections-types';
 import { ProductCard } from '@kea-commerce/shared/product';
 
-import { useAllProductsData } from './lib/use-all-products-data';
 import { CategoriesBreadcrumb } from './categories-breadcrumb';
+import { useCollectionData } from './lib';
 
-export const FilteredProducts = () => {
-  const { collection } = useParams<{ collection: string }>();
+type CollectionProps = Readonly<{
+  collection?: string;
+}>;
 
-  const { data: allProducts, isError, error, isPending } = useAllProductsData();
-
-  if (isPending) {
-    return <span>Loading...</span>;
-  }
+export const Collection: FC<CollectionProps> = ({ collection = 'all' }) => {
+  const { data: products, isError, error, isPending } = useCollectionData(collection);
 
   if (isError) {
     return <span>Error: {error.message}</span>;
   }
 
-  const filteredCategory = allProducts.data.filter((product) => product.category === collection);
+  if (isPending || !products) {
+    return <span>Loading...</span>;
+  }
+
   const collectionNames = collections.find((collectionModel) => collectionModel.link === collection);
 
   return (
@@ -30,9 +31,9 @@ export const FilteredProducts = () => {
       </div>
 
       <div className='grid grid-cols-2 justify-center gap-5 md:grid-cols-4'>
-        {collection === 'shop'
-          ? allProducts?.data.map((product) => <ProductCard key={product.id} product={product} />)
-          : filteredCategory?.map((product) => <ProductCard key={product.id} product={product} />)}
+        {products.data.map((product) => (
+          <ProductCard key={product.id} product={product} />
+        ))}
       </div>
     </>
   );
