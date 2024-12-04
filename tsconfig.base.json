@@ -36,9 +36,8 @@
     "verbatimModuleSyntax": false,
     "baseUrl": ".",
     "paths": {
-      "@kea-commerce/shared/*": [
-        "./libs/shared/src/lib/*"
-      ]
+      "@kea-commerce/db": ["libs/db/src/index.ts"],
+      "@kea-commerce/shared/*": ["./libs/shared/src/lib/*"]
     }
   }
 }

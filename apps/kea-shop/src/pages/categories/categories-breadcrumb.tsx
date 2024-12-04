@@ -1,6 +1,8 @@
 import { RxSlash } from 'react-icons/rx';
 import { Link } from 'react-router-dom';
 
+import { defaultCollection } from '@kea-commerce/shared/collections';
+
 type CategoriesBreadcrumbProps = Readonly<{
   collectionName: string | undefined;
 }>;
@@ -12,7 +14,7 @@ export const CategoriesBreadcrumb = ({ collectionName }: CategoriesBreadcrumbPro
         Home
       </Link>
       <RxSlash className='pt-1' />
-      <Link className='hover:font-medium' to='/collections/shop'>
+      <Link className='hover:font-medium' to={`/collections/${defaultCollection.link}`}>
         Shop
       </Link>
       <RxSlash className='pt-1' />

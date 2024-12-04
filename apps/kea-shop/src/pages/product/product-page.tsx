@@ -1,9 +1,9 @@
 import { useParams } from 'react-router-dom';
 
-import { collections } from '@kea-commerce/shared/collections-types';
+import { collections } from '@kea-commerce/shared/collections';
 
-import { useProductData } from './lib/use-product-data';
 import { AddToCartButton } from './add-to-cart-button';
+import { useProductData } from './lib';
 import { ProductBreadcrumb } from './product-breadcrumbs';
 import { Quantity } from './quantity';
 

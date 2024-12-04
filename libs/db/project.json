@@ -1,0 +1,50 @@
+{
+  "name": "db",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/db/src",
+  "projectType": "library",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project db --web",
+  "targets": {
+    "knex": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cmd": "--help"
+      }
+    },
+    "migrate": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "knex migrate:latest --knexfile=src/lib/knexfile.ts",
+        "cwd": "libs/db"
+      },
+      "configurations": {
+        "make": {
+          "command": "knex migrate:make --knexfile=src/lib/knexfile.ts"
+        },
+        "up": {
+          "command": "knex migrate:latest --knexfile=src/lib/knexfile.ts"
+        },
+        "down": {
+          "command": "knex migrate:rollback --knexfile=src/lib/knexfile.ts"
+        }
+      }
+    },
+    "seed": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "knex seed:run --knexfile=src/lib/knexfile.ts",
+        "cwd": "libs/db"
+      },
+      "configurations": {
+        "make": {
+          "command": "knex seed:make --knexfile=src/lib/knexfile.ts",
+          "cwd": "libs/db"
+        },
+        "latest": {
+          "command": "knex seed:run --knexfile=src/lib/knexfile.ts"
+        }
+      }
+    }
+  }
+}
