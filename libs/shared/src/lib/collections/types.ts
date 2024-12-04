@@ -1,4 +1,7 @@
-import type { Collection } from './nav/types';
+export type Collection = {
+  title: string;
+  link: string;
+};
 
 export const defaultCollection: Collection = {
   title: 'All Products',
@@ -13,4 +16,6 @@ export const collections: Collection[] = [
   { title: 'Kitchen', link: 'kitchen' },
   { title: 'Laundry & Cleaning', link: 'laundry-cleaning' },
   { title: 'Pets', link: 'pets' },
-];
+] as const;
+
+export type CollectionType = (typeof collections)[number]['link'];
