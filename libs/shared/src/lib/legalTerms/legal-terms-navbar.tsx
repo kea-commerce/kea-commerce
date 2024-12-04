@@ -11,11 +11,14 @@ export const LegalTermsNavbar = ({ navbarContent }: LegalTermsNavbarProps) => {
   const path = pathname.slice(1);
 
   return (
-    <div className='pl-2 sticky top-20'>
+    <div className='pl-2 sticky top-20 w-full'>
       {navbarContent.sections.map((navbar) => (
-        <ul key={navbar.information}>
+        <ul key={navbar.sectionNumber}>
           <a className='hover:text-lightGreen' href={`${path}#${navbar.heading}`}>
-            <li className='py-3 font-semibold '>{`${navbar.sectionNumber}. ${navbar.heading}`}</li>
+            <li
+              className='py-3 font-semibold'
+              key={navbar.sectionNumber}
+            >{`${navbar.sectionNumber}. ${navbar.heading}`}</li>
           </a>
         </ul>
       ))}

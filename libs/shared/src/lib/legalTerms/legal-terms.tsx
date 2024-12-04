@@ -14,11 +14,10 @@ export const LegalTerms = ({ content }: LegalTermsContentProps) => (
       <h1>{content.title}</h1>
     </div>
     <div className='flex flex-row'>
-      <div className='md: px-10'>{isMobile ? undefined : <LegalTermsNavbar navbarContent={content} />}</div>
-      <div className='md:p-10 md:pt-0 pb-10'>
+      <div className='md:px-10 max-w-sm'>{isMobile ? undefined : <LegalTermsNavbar navbarContent={content} />}</div>
+      <div className='px-8 md:p-10 md:pt-0 pb-10 md:max-w-5xl'>
         <LegalTermsContent content={content} />
       </div>
     </div>
   </div>
 );
-
