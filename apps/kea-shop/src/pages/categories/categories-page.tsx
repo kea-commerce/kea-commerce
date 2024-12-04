@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { type SetStateAction, useMemo, useState } from 'react';
 import { isMobile } from 'react-device-detect';
 
 import { Collections } from './collections';
@@ -14,13 +14,13 @@ export const CategoriesPage = () => {
   const itemsPerPage = meta?.itemsPerPage;
 
   const currentProductData = useMemo(() => {
-    const firstPageIndex = (currentPage - 1) * itemsPerPage;
-    const lastPageIndex = firstPageIndex + itemsPerPage;
+    const firstPageIndex = itemsPerPage && (currentPage - 1) * itemsPerPage;
+    const lastPageIndex = itemsPerPage && firstPageIndex && firstPageIndex + itemsPerPage;
     return allProducts?.data.slice(firstPageIndex, lastPageIndex);
   }, [currentPage, allProducts, itemsPerPage]);
 
   const onPageChangeHandle = useMemo(() => {
-    return (page) => setCurrentPage(page);
+    return (page: SetStateAction<number>) => setCurrentPage(page);
   }, []);
 
   return (

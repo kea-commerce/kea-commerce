@@ -28,8 +28,8 @@ router.get('/', async (request, response) => {
     metadata: {
       currentPage: 0,
       totalItems: products.length,
-      itemsPerPage: 24,
-      totalPages: products.length / 24,
+      itemsPerPage: 5,
+      totalPages: products.length / 5,
       hasMore: false,
     },
   } as ProductsResponse);

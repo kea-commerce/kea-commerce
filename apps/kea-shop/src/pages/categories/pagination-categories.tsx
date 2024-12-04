@@ -1,7 +1,9 @@
+import { useCallback } from 'react';
+
 import { DOTS, usePagination } from './lib/use-pagination';
 
 type PaginationCategoriesProps = {
-  readonly onPageChange: unknown;
+  readonly onPageChange: any;
   readonly totalPages: number;
   readonly siblingCount: number;
   readonly currentPage: number;
@@ -18,35 +20,72 @@ export const PaginationCategories = ({
 }: PaginationCategoriesProps) => {
   const paginationRange = usePagination({ totalItems, currentPage, totalPages, siblingCount, itemsPerPage });
   console.log('pagination range is', paginationRange);
-  if (currentPage === 0 && paginationRange?.length < 2) {
-    return null;
-  }
+  console.log('length is', paginationRange?.length);
+  console.log('totalPages', totalPages);
+  console.log('currentPage is', currentPage);
 
-  const onNext = () => {
-    onPageChange(currentPage < paginationRange?.length ? currentPage + 1 : currentPage);
-  };
+  const pageNumberChangeHandler = useCallback(
+    (pageNumber: number | string) => {
+      return () => onPageChange(pageNumber);
+    },
+    [onPageChange]
+  );
 
-  const onPrevious = () => {
-    onPageChange(currentPage === 0 ? currentPage : currentPage - 1);
-  };
+  const previousPageChangeHandler = useCallback(
+    (currentPage: number) => {
+      return () => onPageChange(currentPage - 1);
+    },
+    [onPageChange]
+  );
+  const nextPageChangeHandler = useCallback(
+    (currentPage: number) => {
+      return () => onPageChange(currentPage + 1);
+    },
+    [onPageChange]
+  );
 
-  const lastPage = totalItems / itemsPerPage;
+  const paginationLength = paginationRange?.length;
+  // if (paginationLength && currentPage === 0 && paginationLength < 2) {
+  //   return null;
+  // }
 
   return (
     <ul>
-      <li onClick={onPrevious}>previous</li>
+      <li>
+        {currentPage === 1 ? (
+          <button onClick={onPageChange(currentPage)} type='button'>
+            previous
+          </button>
+        ) : (
+          <button onClick={previousPageChangeHandler(currentPage)} type='button'>
+            previous
+          </button>
+        )}
+      </li>
       {paginationRange?.map((pageNumber) => {
         if (pageNumber === DOTS) {
-          return <li>{DOTS}</li>;
+          return <li key={pageNumber}>{DOTS}</li>;
         }
 
         return (
-          <li key={pageNumber} onClick={() => onPageChange(pageNumber)}>
-            {pageNumber}
+          <li key={pageNumber}>
+            <button onClick={pageNumberChangeHandler(pageNumber)} type='button'>
+              {pageNumber}
+            </button>
           </li>
         );
       })}
-      <li onClick={onNext}>next</li>
+      <li>
+        {currentPage === paginationLength ? (
+          <button onClick={onPageChange(currentPage)} type='button'>
+            next
+          </button>
+        ) : (
+          <button onClick={nextPageChangeHandler(currentPage)} type='button'>
+            next
+          </button>
+        )}
+      </li>
     </ul>
   );
 };
