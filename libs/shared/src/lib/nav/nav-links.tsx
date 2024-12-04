@@ -1,6 +1,8 @@
 import { isMobile } from 'react-device-detect';
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa6';
 
+import { defaultCollection } from '../collections-types';
+
 import { NavLink } from './nav-link';
 import type { NavLinkItem } from './types';
 
@@ -8,7 +10,7 @@ export const NavLinks = () => {
   const navLinks: NavLinkItem[] = [
     {
       title: 'SHOP',
-      url: '/collections/shop',
+      url: `/collections/${defaultCollection.link}`,
       icon: {
         iconDown: <FaChevronDown className='w-8' />,
         iconUp: <FaChevronUp className='w-8' />,
