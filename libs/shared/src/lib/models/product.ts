@@ -22,4 +22,6 @@ export interface ProductsResponseMetadata {
   totalItems: number;
   itemsPerPage: number;
   hasMore: boolean;
+  nextPage: number;
+  previousPage: number;
 }
