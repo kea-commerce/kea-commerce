@@ -1,28 +1,29 @@
 import { useCallback } from 'react';
+import { useParams } from 'react-router';
+import { error } from 'node:console';
 
-import { DOTS, usePagination } from './lib/use-pagination';
+import { usePagination } from './lib/use-pagination';
 
 type PaginationCategoriesProps = {
   readonly onPageChange: any;
   readonly totalPages: number;
-  readonly siblingCount: number;
   readonly currentPage: number;
-  readonly itemsPerPage: number;
-  readonly totalItems: number;
 };
-export const PaginationCategories = ({
-  onPageChange,
-  totalPages,
-  siblingCount = 1,
-  currentPage,
-  itemsPerPage,
-  totalItems,
-}: PaginationCategoriesProps) => {
-  const paginationRange = usePagination({ totalItems, currentPage, totalPages, siblingCount, itemsPerPage });
-  console.log('pagination range is', paginationRange);
-  console.log('length is', paginationRange?.length);
-  console.log('totalPages', totalPages);
-  console.log('currentPage is', currentPage);
+export const PaginationCategories = ({ onPageChange, totalPages }: PaginationCategoriesProps) => {
+  const {
+    data,
+    isError,
+    isLoading,
+    fetchNextPage,
+    fetchPreviousPage,
+    hasNextPage,
+    hasPreviousPage,
+    isFetchingNextPage,
+    isFetchingPreviousPage,
+  } = usePagination();
+  const { page } = useParams();
+
+  const currentPage = Number(page);
 
   const pageNumberChangeHandler = useCallback(
     (pageNumber: number | string) => {
@@ -31,59 +32,46 @@ export const PaginationCategories = ({
     [onPageChange]
   );
 
-  const previousPageChangeHandler = useCallback(
-    (currentPage: number) => {
-      return () => onPageChange(currentPage - 1);
-    },
-    [onPageChange]
-  );
-  const nextPageChangeHandler = useCallback(
-    (currentPage: number) => {
-      return () => onPageChange(currentPage + 1);
-    },
-    [onPageChange]
-  );
+  console.log('data is', data);
+  console.log('data  pages is', data?.pages);
+  console.log('data pageParams is', data?.pageParams);
+  console.log('page param is', page);
 
-  const paginationLength = paginationRange?.length;
-  // if (paginationLength && currentPage === 0 && paginationLength < 2) {
-  //   return null;
-  // }
+  console.log('totalPages', totalPages);
+  console.log('currentPage is', currentPage);
+
+  if (isError) {
+    return <p>error</p>;
+  }
+
+  if (isLoading) {
+    return <p>loading</p>;
+  }
 
   return (
     <ul>
       <li>
-        {currentPage === 1 ? (
-          <button onClick={onPageChange(currentPage)} type='button'>
+        {hasPreviousPage ? (
+          <button onClick={() => fetchPreviousPage} type='button'>
             previous
           </button>
         ) : (
-          <button onClick={previousPageChangeHandler(currentPage)} type='button'>
-            previous
-          </button>
+          <button type='button'>previous</button>
         )}
       </li>
-      {paginationRange?.map((pageNumber) => {
-        if (pageNumber === DOTS) {
-          return <li key={pageNumber}>{DOTS}</li>;
-        }
+      <li key={currentPage}>
+        <button onClick={pageNumberChangeHandler(currentPage)} type='button'>
+          {currentPage}
+        </button>
+      </li>
 
-        return (
-          <li key={pageNumber}>
-            <button onClick={pageNumberChangeHandler(pageNumber)} type='button'>
-              {pageNumber}
-            </button>
-          </li>
-        );
-      })}
       <li>
-        {currentPage === paginationLength ? (
-          <button onClick={onPageChange(currentPage)} type='button'>
+        {hasNextPage ? (
+          <button onClick={() => fetchNextPage} type='button'>
             next
           </button>
         ) : (
-          <button onClick={nextPageChangeHandler(currentPage)} type='button'>
-            next
-          </button>
+          <button type='button'>next</button>
         )}
       </li>
     </ul>

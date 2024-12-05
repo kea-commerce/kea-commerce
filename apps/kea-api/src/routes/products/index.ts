@@ -14,7 +14,7 @@ router.get('/:id', async (request, response) => {
 });
 
 router.get('/page/:currentPage', async (request, response) => {
-  const { currentPage } = request.params;
+  const { currentPage } = request.query;
   const pageNumber = Number(currentPage);
 
   const products = generateMockProducts({
@@ -26,13 +26,15 @@ router.get('/page/:currentPage', async (request, response) => {
     imageHeight: 300,
   });
 
+  const productsPerPage = 5;
   response.status(200).json({
     data: products,
+
     metadata: {
       currentPage: pageNumber,
       totalItems: products.length,
-      itemsPerPage: 5,
-      totalPages: products.length / 5,
+      itemsPerPage: productsPerPage,
+      totalPages: products.length / productsPerPage,
       hasMore: false,
       nextPage: pageNumber + 1,
       previousPage: pageNumber - 1,
